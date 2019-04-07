@@ -6,6 +6,7 @@
 groceryStores <- read.csv("workingData.csv", header=T, na.strings="?")
 fix(groceryStores)
 summary(groceryStores)
+summary(groceryStores$Zip.Code)
 groceryStores
 
 ################################################
@@ -17,7 +18,7 @@ install.packages("tree")
 library(tree)
 
 # classification tree for predicting CLASSIFICTION of grocery stores (high/medium/low)
-tree.classificationGroceryStores=tree(Classification ~. -Grocery.Store.Name -Address -Zip.Code, groceryStores)
+tree.classificationGroceryStores=tree(Classification ~. -Grocery.Store.Name -Address -Zip.Code=, groceryStores)
 summary(tree.classificationGroceryStores)
 plot(tree.classificationGroceryStores)
 text(tree.classificationGroceryStores)
@@ -35,6 +36,12 @@ text(tree.meanIncomePerZipcode)
 # ... nOT GOOD 
 yikes <- deviance(tree.meanIncomePerZipcode)
 
+# attempt to predict zipcode ... doesn't work well
+tree.zipcode=tree(Zip.Code ~. -Grocery.Store.Name -Address, groceryStores)
+summary(tree.zipcode)
+plot(tree.zipcode)
+text(tree.zipcode)
+
 
 ################################################
 # Bayes Classifier
@@ -44,13 +51,64 @@ install.packages("e1071")
 library(e1071)
 help(naiveBayes)
 
-# make a training set of a random sample of 45 from groceryStores data
+# make a training set of a random sample that's half the size of the groceryStores data
 set.seed(2)
-train=sample(1:nrow(groceryStores), 45) #need to play around with "train" data......
+train=sample(1:nrow(groceryStores), nrow(groceryStores)/2) #need to play around with "train" data...
 
 bay.c <- naiveBayes(Classification ~. -Grocery.Store.Name -Address -Zip.Code, groceryStores, subset=train)
 summary(bay.c)
 bay.c
 
 
+################################################
+# Regression Trees (with bagging!)
+################################################
+install.packages("randomForest")
+library(randomForest)
 
+# create a test-set
+grocery.test=groceryStores[-train,"Mean.Income.for.Zipcode"]
+
+# predict MEAN INCOME PER ZIPCODE with regression trees
+set.seed(1)
+bag.grocery=randomForest(Mean.Income.for.Zipcode ~. -Grocery.Store.Name -Address -Zip.Code, data=groceryStores, subset=train, mtry=3, importance=TRUE)
+bag.grocery
+yhat.bag = predict(bag.grocery, newdata=groceryStores[-train,])
+
+train
+groceryStores[-train,]
+
+plot(yhat.bag, grocery.test)
+abline(0, 1)
+mean((yhat.bag-grocery.test)^2) # mean squared error is 22-million LOL
+yhat.bag
+grocery.test
+##### saved regression tree as LOL_regressionTreeNoThankYou_Yikes.pdf
+
+# Median income per zipcode provides the most increase in MSE
+importance(bag.grocery)
+# Median income per zipcode ALSO is the most "pure" in nodes
+varImpPlot(bag.grocery)
+
+################################################
+# Boosting things (Regression tree)
+################################################
+
+#### YIKES ---- only Multnomah county data == NOT ENOUGH DATA for boooooosting!!!!
+#install.packages("gbm")
+#library(gbm)
+#set.seed(1)
+#boost.grocery=gbm(Mean.Income.for.Zipcode ~. -Address -Grocery.Store.Name, data=groceryStores[train,], distribution="gaussian", n.trees=20, interaction.depth=4)
+#summary(boost.grocery)
+
+
+################################################
+# Regression lines (with multiple regression!!!!!)
+################s################################
+
+lm.fit=lm(Mean.Income.for.Zipcode ~ . -Address -Grocery.Store.Name -Zip.Code, data=groceryStores)
+lm.fit
+summary(lm.fit)
+
+par(mfrow=c(2,2))
+plot(lm.fit)
