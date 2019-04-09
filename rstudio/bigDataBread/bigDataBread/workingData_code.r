@@ -18,7 +18,7 @@ install.packages("tree")
 library(tree)
 
 # classification tree for predicting CLASSIFICTION of grocery stores (high/medium/low)
-tree.classificationGroceryStores=tree(Classification ~. -Grocery.Store.Name -Address -Zip.Code=, groceryStores)
+tree.classificationGroceryStores=tree(Classification ~. -Grocery.Store.Name -Address -Zip.Code, groceryStores)
 summary(tree.classificationGroceryStores)
 plot(tree.classificationGroceryStores)
 text(tree.classificationGroceryStores)
@@ -104,7 +104,7 @@ varImpPlot(bag.grocery)
 
 ################################################
 # Regression lines (with multiple regression!!!!!)
-################s################################
+################################################
 
 lm.fit=lm(Mean.Income.for.Zipcode ~ . -Address -Grocery.Store.Name -Zip.Code, data=groceryStores)
 lm.fit
@@ -112,3 +112,44 @@ summary(lm.fit)
 
 par(mfrow=c(2,2))
 plot(lm.fit)
+
+
+################################################
+# Let'z K-meanz cluster dis
+#
+################################################
+set.seed(2)
+x <- groceryStores[,c(5, 6, 7)]
+
+km.out=kmeans(x, 2, nstart=20)
+km.out$cluster
+km.out$centers
+
+plot(x, col=(km.out$cluster+1), main="K-Means Clustering Results with K=2", pch=20, cex=2)
+
+###### TRY K-MEANS CLUSTERING 
+### change "classification" value columns (aka "High" to 1; "Medium" to 2; "Low" to 3)
+
+
+
+
+################################################
+# Hierarchical clusteringggg
+# .... what does this meann!!!!????? it kind of worked
+################################################
+hc.complete=hclust(dist(groceryStores), method="complete")
+hc.average=hclust(dist(groceryStores), method="average")
+hc.single=hclust(dist(groceryStores), method="single")
+
+par(mfrow=c(1,3))
+plot(hc.complete,main="Complete Linkage", xlab="", sub="", cex=.9)
+plot(hc.average,main="Average Linkage", xlab="", sub="", cex=.9)
+plot(hc.single,main="Single Linkage", xlab="", sub="", cex=.9)
+
+
+################################################
+# Principal components
+################################################
+
+
+
