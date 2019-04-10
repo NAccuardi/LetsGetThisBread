@@ -1,57 +1,57 @@
-﻿Grocery Store Name,Classification,Address ,Zip Code,Median Income for Zipcode,Mean Income for Zipcode,Population of Zipcode
-Whole Foods Market,High,"3535 NE 15th Ave, Portland, OR 97212","""97212""",76462,94074,23200
-Whole Foods Market,High,"4301 NE Sandy Blvd, Portland, OR 97213","""97213""",59038,70226,29007
-Whole Foods Market,High,"2825 E Burnside St, Portland, OR 97214","""97214""",48004,62390,22668
-Whole Foods Market,High,"1210 NW Couch St, Portland, OR 97209","""97209""",34518,61098,8395
-New Seasons,High,"University Park, 6300 N Lombard St, Portland, OR 97203","""97203""",43918,53190,27612
-New Seasons,High,"New Seasons Market Arbor Lodge, 6400 N Interstate Ave, Portland, OR 97217","""97217""",48622,59065,30072
-New Seasons,High,"2170 NW Raleigh St, Portland, OR 97210","""97210""",61296,90869,9915
-New Seasons,High,"3445 N Williams Ave, Portland, OR 97212","""97212""",76462,94074,23200
-New Seasons,High,"5320 NE 33rd Ave, Portland, OR 97211","""97211""",55037,66701,30688
-New Seasons,High,"3210 NE Broadway St, Portland, OR 97232","""97232""",55155,77891,10676
-New Seasons,High,"4034 SE Hawthorne Blvd, Portland, OR 97214","""97214""",48004,62390,22668
-New Seasons,High,"1954 SE Division St, Portland, OR 97202","""97202""",52560,66785,37097
-New Seasons,High,"4500 SE Woodstock Blvd, Portland, OR 97206","""97206""",48476,55472,45454
-New Seasons,High,"1214 SE Tacoma St, Portland, OR 97202","""97202""",52560,66785,37097
-Walmart,Low,"1123 N Hayden Meadows Dr, Portland, OR 97217","""97217""",48622,59065,30072
-Walmart,Low,"4200 SE 82nd Ave, Portland, OR 97266","""97266""",41274,48310,28254
-Walmart,Low,"23500 NE Sandy Blvd, Wood Village, OR 97060","""97060""",60353,69529,17978
-Grocery Outlet,Low,"7741 N Lombard St, Portland, OR 97203","""97203""",43918,53190,27612
-Grocery Outlet,Low,"4420 NE Hancock St, Portland, OR 97213","""97213""",59038,70226,29007
-Grocery Outlet,Low,"7120 SE Flavel St, Portland, OR 97206","""97206""",48476,55472,45454
-Grocery Outlet,Low,"12102 SE Division St, Portland, OR 97266","""97266""",41274,48310,28254
-Grocery Outlet,Low,"10721 NE Sandy Blvd, Portland, OR 97220","""97220""",43212,53688,27422
-Grocery Outlet,Low,"2925 NW Division St, Gresham, OR 97030","""97030""",45355,54363,31968
-Green Zebra,Medium,"3011 N Lombard St, Portland, OR 97217","""97217""",48622,59065,30072
-Green Zebra,Medium,"1704 SW Broadway, Portland, OR 97201","""97201""",51690,81269,12340
-Green Zebra,Medium,"808 NE Multnomah St, Portland, OR 97232","""97232""",55155,77891,10676
-Fred Meyer,Medium,"6850 N Lombard St, Portland, OR 97203","""97203""",43918,53190,27612
-Fred Meyer,Medium,"7404 N Interstate Ave, Portland, OR 97217","""97217""",48622,59065,30072
-Fred Meyer,Medium,"100 NW 20th Pl, Portland, OR 97209","""97209""",34518,61098,8395
-Fred Meyer,Medium,"3030 NE Weidler St, Portland, OR 97232","""97232""",55155,77891,10676
-Fred Meyer,Medium,"7555 SW Barbur Blvd, Portland, OR 97219","""97219""",78979,105280,37062
-Fred Meyer,Medium,"3805 SE Hawthorne Blvd, Portland, OR 97214","""97214""",48004,62390,22668
-Fred Meyer,Medium,"6615 NE Glisan St, Portland, OR 97213","""97213""",59038,70226,29007
-Fred Meyer,Medium,"1111 NE 102nd Ave, Portland, OR 97220","""97220""",43212,53688,27422
-Fred Meyer,Medium,"14700 SE Division St, Portland, OR 97236","""97236""",47870,55407,27705
-Fred Meyer,Medium,"22855 NE Park Ln, Wood Village, OR 97060","""97060""",60353,69529,17978
-Safeway,Medium,"8330 N Ivanhoe St, Portland, OR 97203","""97203""",43918,53190,27612
-Safeway,Medium,"5920 NE Martin Luther King Jr Blvd, Portland, OR 97211","""97211""",55037,66701,30688
-Safeway,Medium,"6901 NE Sandy Blvd, Portland, OR 97213","""97213""",59038,70226,29007
-Safeway,Medium,"1100 NE Broadway St, Portland, OR 97232","""97232""",55155,77891,10676
-Safeway,Medium,"1303 NW Lovejoy St, Portland, OR 97209","""97209""",34518,61098,8395
-Safeway,Medium,"1010 SW Jefferson St, Portland, OR 97201","""97201""",51690,81269,12340
-Safeway,Medium,"2800 SE Hawthorne Blvd, Portland, OR 97214","""97214""",48004,62390,22668
-Safeway,Medium,"3930 SE Powell Blvd, Portland, OR 97202","""97202""",52560,66785,37097
-Safeway,Medium,"4515 SE Woodstock Blvd, Portland, OR 97206","""97206""",48476,55472,45454
-Safeway,Medium,"8145 SW Barbur Blvd, Portland, OR 97219","""97219""",78979,105280,37062
-Safeway,Medium,"3527 SE 122nd Ave, Portland, OR 97236","""97236""",47870,55407,27705
-Safeway,Medium,"1001 SW Highland Dr, Gresham, OR 97080","""97080""",62760,72111,33590
-Safeway,Medium,"1455 NE Division St, Gresham, OR 97030","""97030""",45355,54363,31968
-Safeway,Medium,"2501 SW Cherry Park Rd, Troutdale, OR 97060","""97060""",60353,69529,17978
-Target,Medium,"1555 N Tomahawk Island Dr, Portland, OR 97217","""97217""",48622,59065,30072
-Target,Medium,"939 SW Morrison St, Portland, OR 97205","""97205""",40051,58869,6682
-Target,Medium,"9401 NE Cascades Pkwy, Portland, OR 97220","""97220""",43212,53688,27422
-Target,Medium,"3031 SE Powell Blvd, Portland, OR 97202","""97202""",52560,66785,37097
-Target,Medium,"9800 SE Washington St, Portland, OR 97216","""97216""",43896,50449,13563
-Target,Medium,"21500 NE Halsey St, Fairview, OR 97024","""97024""",51056,64962,8721
+﻿Grocery Store Name,Number Classification,Word Classification,Address ,Zip Code,Median Income for Zipcode,Mean Income for Zipcode,Population of Zipcode
+Whole Foods Market,1,High,"3535 NE 15th Ave, Portland, OR 97212","""97212""",76462,94074,23200
+Whole Foods Market,1,High,"4301 NE Sandy Blvd, Portland, OR 97213","""97213""",59038,70226,29007
+Whole Foods Market,1,High,"2825 E Burnside St, Portland, OR 97214","""97214""",48004,62390,22668
+Whole Foods Market,1,High,"1210 NW Couch St, Portland, OR 97209","""97209""",34518,61098,8395
+New Seasons,1,High,"University Park, 6300 N Lombard St, Portland, OR 97203","""97203""",43918,53190,27612
+New Seasons,1,High,"New Seasons Market Arbor Lodge, 6400 N Interstate Ave, Portland, OR 97217","""97217""",48622,59065,30072
+New Seasons,1,High,"2170 NW Raleigh St, Portland, OR 97210","""97210""",61296,90869,9915
+New Seasons,1,High,"3445 N Williams Ave, Portland, OR 97212","""97212""",76462,94074,23200
+New Seasons,1,High,"5320 NE 33rd Ave, Portland, OR 97211","""97211""",55037,66701,30688
+New Seasons,1,High,"3210 NE Broadway St, Portland, OR 97232","""97232""",55155,77891,10676
+New Seasons,1,High,"4034 SE Hawthorne Blvd, Portland, OR 97214","""97214""",48004,62390,22668
+New Seasons,1,High,"1954 SE Division St, Portland, OR 97202","""97202""",52560,66785,37097
+New Seasons,1,High,"4500 SE Woodstock Blvd, Portland, OR 97206","""97206""",48476,55472,45454
+New Seasons,1,High,"1214 SE Tacoma St, Portland, OR 97202","""97202""",52560,66785,37097
+Walmart,3,Low,"1123 N Hayden Meadows Dr, Portland, OR 97217","""97217""",48622,59065,30072
+Walmart,3,Low,"4200 SE 82nd Ave, Portland, OR 97266","""97266""",41274,48310,28254
+Walmart,3,Low,"23500 NE Sandy Blvd, Wood Village, OR 97060","""97060""",60353,69529,17978
+Grocery Outlet,3,Low,"7741 N Lombard St, Portland, OR 97203","""97203""",43918,53190,27612
+Grocery Outlet,3,Low,"4420 NE Hancock St, Portland, OR 97213","""97213""",59038,70226,29007
+Grocery Outlet,3,Low,"7120 SE Flavel St, Portland, OR 97206","""97206""",48476,55472,45454
+Grocery Outlet,3,Low,"12102 SE Division St, Portland, OR 97266","""97266""",41274,48310,28254
+Grocery Outlet,3,Low,"10721 NE Sandy Blvd, Portland, OR 97220","""97220""",43212,53688,27422
+Grocery Outlet,3,Low,"2925 NW Division St, Gresham, OR 97030","""97030""",45355,54363,31968
+Green Zebra,2,Medium,"3011 N Lombard St, Portland, OR 97217","""97217""",48622,59065,30072
+Green Zebra,2,Medium,"1704 SW Broadway, Portland, OR 97201","""97201""",51690,81269,12340
+Green Zebra,2,Medium,"808 NE Multnomah St, Portland, OR 97232","""97232""",55155,77891,10676
+Fred Meyer,2,Medium,"6850 N Lombard St, Portland, OR 97203","""97203""",43918,53190,27612
+Fred Meyer,2,Medium,"7404 N Interstate Ave, Portland, OR 97217","""97217""",48622,59065,30072
+Fred Meyer,2,Medium,"100 NW 20th Pl, Portland, OR 97209","""97209""",34518,61098,8395
+Fred Meyer,2,Medium,"3030 NE Weidler St, Portland, OR 97232","""97232""",55155,77891,10676
+Fred Meyer,2,Medium,"7555 SW Barbur Blvd, Portland, OR 97219","""97219""",78979,105280,37062
+Fred Meyer,2,Medium,"3805 SE Hawthorne Blvd, Portland, OR 97214","""97214""",48004,62390,22668
+Fred Meyer,2,Medium,"6615 NE Glisan St, Portland, OR 97213","""97213""",59038,70226,29007
+Fred Meyer,2,Medium,"1111 NE 102nd Ave, Portland, OR 97220","""97220""",43212,53688,27422
+Fred Meyer,2,Medium,"14700 SE Division St, Portland, OR 97236","""97236""",47870,55407,27705
+Fred Meyer,2,Medium,"22855 NE Park Ln, Wood Village, OR 97060","""97060""",60353,69529,17978
+Safeway,2,Medium,"8330 N Ivanhoe St, Portland, OR 97203","""97203""",43918,53190,27612
+Safeway,2,Medium,"5920 NE Martin Luther King Jr Blvd, Portland, OR 97211","""97211""",55037,66701,30688
+Safeway,2,Medium,"6901 NE Sandy Blvd, Portland, OR 97213","""97213""",59038,70226,29007
+Safeway,2,Medium,"1100 NE Broadway St, Portland, OR 97232","""97232""",55155,77891,10676
+Safeway,2,Medium,"1303 NW Lovejoy St, Portland, OR 97209","""97209""",34518,61098,8395
+Safeway,2,Medium,"1010 SW Jefferson St, Portland, OR 97201","""97201""",51690,81269,12340
+Safeway,2,Medium,"2800 SE Hawthorne Blvd, Portland, OR 97214","""97214""",48004,62390,22668
+Safeway,2,Medium,"3930 SE Powell Blvd, Portland, OR 97202","""97202""",52560,66785,37097
+Safeway,2,Medium,"4515 SE Woodstock Blvd, Portland, OR 97206","""97206""",48476,55472,45454
+Safeway,2,Medium,"8145 SW Barbur Blvd, Portland, OR 97219","""97219""",78979,105280,37062
+Safeway,2,Medium,"3527 SE 122nd Ave, Portland, OR 97236","""97236""",47870,55407,27705
+Safeway,2,Medium,"1001 SW Highland Dr, Gresham, OR 97080","""97080""",62760,72111,33590
+Safeway,2,Medium,"1455 NE Division St, Gresham, OR 97030","""97030""",45355,54363,31968
+Safeway,2,Medium,"2501 SW Cherry Park Rd, Troutdale, OR 97060","""97060""",60353,69529,17978
+Target,2,Medium,"1555 N Tomahawk Island Dr, Portland, OR 97217","""97217""",48622,59065,30072
+Target,2,Medium,"939 SW Morrison St, Portland, OR 97205","""97205""",40051,58869,6682
+Target,2,Medium,"9401 NE Cascades Pkwy, Portland, OR 97220","""97220""",43212,53688,27422
+Target,2,Medium,"3031 SE Powell Blvd, Portland, OR 97202","""97202""",52560,66785,37097
+Target,2,Medium,"9800 SE Washington St, Portland, OR 97216","""97216""",43896,50449,13563
+Target,2,Medium,"21500 NE Halsey St, Fairview, OR 97024","""97024""",51056,64962,8721

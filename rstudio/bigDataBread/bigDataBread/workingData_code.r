@@ -18,7 +18,7 @@ install.packages("tree")
 library(tree)
 
 # classification tree for predicting CLASSIFICTION of grocery stores (high/medium/low)
-tree.classificationGroceryStores=tree(Classification ~. -Grocery.Store.Name -Address -Zip.Code, groceryStores)
+tree.classificationGroceryStores=tree(Word.Classification ~. -Grocery.Store.Name -Address -Zip.Code -Number.Classification, groceryStores)
 summary(tree.classificationGroceryStores)
 plot(tree.classificationGroceryStores)
 text(tree.classificationGroceryStores)
@@ -28,7 +28,7 @@ text(tree.classificationGroceryStores)
 deviance(tree.classificationGroceryStores)
 
 # classification tree for predicting MEAN income per zipcode
-tree.meanIncomePerZipcode=tree(Mean.Income.for.Zipcode ~. -Grocery.Store.Name -Address -Zip.Code, groceryStores)
+tree.meanIncomePerZipcode=tree(Mean.Income.for.Zipcode ~. -Grocery.Store.Name -Address -Zip.Code -Nummber.Classification, groceryStores)
 summary(tree.meanIncomePerZipcode)
 plot(tree.meanIncomePerZipcode)
 text(tree.meanIncomePerZipcode)
@@ -37,11 +37,11 @@ text(tree.meanIncomePerZipcode)
 yikes <- deviance(tree.meanIncomePerZipcode)
 
 # attempt to predict zipcode ... doesn't work well
-tree.zipcode=tree(Zip.Code ~. -Grocery.Store.Name -Address, groceryStores)
+tree.zipcode=tree(Zip.Code ~. -Grocery.Store.Name -Address -Number.Classification, groceryStores)
 summary(tree.zipcode)
 plot(tree.zipcode)
 text(tree.zipcode)
-
+summary(groceryStores$Zip.Code)
 
 ################################################
 # Bayes Classifier
@@ -55,7 +55,7 @@ help(naiveBayes)
 set.seed(2)
 train=sample(1:nrow(groceryStores), nrow(groceryStores)/2) #need to play around with "train" data...
 
-bay.c <- naiveBayes(Classification ~. -Grocery.Store.Name -Address -Zip.Code, groceryStores, subset=train)
+bay.c <- naiveBayes(Word.Classification ~. -Grocery.Store.Name -Address -Zip.Code -Number.Classification, groceryStores, subset=train)
 summary(bay.c)
 bay.c
 
@@ -106,7 +106,7 @@ varImpPlot(bag.grocery)
 # Regression lines (with multiple regression!!!!!)
 ################################################
 
-lm.fit=lm(Mean.Income.for.Zipcode ~ . -Address -Grocery.Store.Name -Zip.Code, data=groceryStores)
+lm.fit=lm(Mean.Income.for.Zipcode ~ . -Address -Grocery.Store.Name -Zip.Code -Number.Classification, data=groceryStores)
 lm.fit
 summary(lm.fit)
 
@@ -119,13 +119,15 @@ plot(lm.fit)
 #
 ################################################
 set.seed(2)
-x <- groceryStores[,c(5, 6, 7)]
+x <- groceryStores[,c(2, 6, 7, 8)]
 
-km.out=kmeans(x, 2, nstart=20)
+km.out=kmeans(x, 3, nstart=20)
 km.out$cluster
 km.out$centers
 
-plot(x, col=(km.out$cluster+1), main="K-Means Clustering Results with K=2", pch=20, cex=2)
+plot(x, col=(km.out$cluster+1), main="K-Means Clustering Results with K=3", pch=20, cex=2)
+
+km.out$iter
 
 ###### TRY K-MEANS CLUSTERING 
 ### change "classification" value columns (aka "High" to 1; "Medium" to 2; "Low" to 3)
@@ -148,8 +150,21 @@ plot(hc.single,main="Single Linkage", xlab="", sub="", cex=.9)
 
 
 ################################################
-# Principal components
+# Principal components --- reduces the dimensionality of our dataset
 ################################################
 
+groceryStoreIncomeAndPop <- groceryStores[,c(6, 7, 8)]
 
+summary(groceryStoreIncomeAndPop)
 
+apply(groceryStoreIncomeAndPop, 2, mean)
+apply(groceryStoreIncomeAndPop, 2, var)
+
+pr.out=prcomp(groceryStoreIncomeAndPop, scale=TRUE)
+names(pr.out)
+pr.out$center
+pr.out$scale
+pr.out$rotation
+pr.out$x
+
+biplot(pr.out, scale=0)
