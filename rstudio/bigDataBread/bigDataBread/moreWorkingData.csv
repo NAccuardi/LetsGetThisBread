@@ -1,0 +1,315 @@
+﻿Grocery Store Name,Classification,Address ,Zip Code,Median Income for Zipcode,Mean Income for Zipcode,Population of Zipcode
+Whole Foods Market,1,"3535 NE 15th Ave, Portland, OR 97212","""97212""",76462,94074,23200
+Whole Foods Market,1,"4301 NE Sandy Blvd, Portland, OR 97213","""97213""",59038,70226,29007
+Whole Foods Market,1,"2825 E Burnside St, Portland, OR 97214","""97214""",48004,62390,22668
+Whole Foods Market,1,"1210 NW Couch St, Portland, OR 97209","""97209""",34518,61098,8395
+New Seasons,1,"University Park, 6300 N Lombard St, Portland, OR 97203","""97203""",43918,53190,27612
+New Seasons,1,"6400 N Interstate Ave, Portland, OR 97217","""97217""",48622,59065,30072
+New Seasons,1,"2170 NW Raleigh St, Portland, OR 97210","""97210""",61296,90869,9915
+New Seasons,1,"3445 N Williams Ave, Portland, OR 97212","""97212""",76462,94074,23200
+New Seasons,1,"5320 NE 33rd Ave, Portland, OR 97211","""97211""",55037,66701,30688
+New Seasons,1,"3210 NE Broadway St, Portland, OR 97232","""97232""",55155,77891,10676
+New Seasons,1,"4034 SE Hawthorne Blvd, Portland, OR 97214","""97214""",48004,62390,22668
+New Seasons,1,"1954 SE Division St, Portland, OR 97202","""97202""",52560,66785,37097
+New Seasons,1,"4500 SE Woodstock Blvd, Portland, OR 97206","""97206""",48476,55472,45454
+New Seasons,1,"1214 SE Tacoma St, Portland, OR 97202","""97202""",52560,66785,37097
+Walmart,3,"1123 N Hayden Meadows Dr, Portland, OR 97217","""97217""",48622,59065,30072
+Walmart,3,"4200 SE 82nd Ave, Portland, OR 97266","""97266""",41274,48310,28254
+Walmart,3,"23500 NE Sandy Blvd, Wood Village, OR 97060","""97060""",60353,69529,17978
+Grocery Outlet,3,"7741 N Lombard St, Portland, OR 97203","""97203""",43918,53190,27612
+Grocery Outlet,3,"4420 NE Hancock St, Portland, OR 97213","""97213""",59038,70226,29007
+Grocery Outlet,3,"7120 SE Flavel St, Portland, OR 97206","""97206""",48476,55472,45454
+Grocery Outlet,3,"12102 SE Division St, Portland, OR 97266","""97266""",41274,48310,28254
+Grocery Outlet,3,"10721 NE Sandy Blvd, Portland, OR 97220","""97220""",43212,53688,27422
+Grocery Outlet,3,"2925 NW Division St, Gresham, OR 97030","""97030""",45355,54363,31968
+Green Zebra,2,"3011 N Lombard St, Portland, OR 97217","""97217""",48622,59065,30072
+Green Zebra,2,"1704 SW Broadway, Portland, OR 97201","""97201""",51690,81269,12340
+Green Zebra,2,"808 NE Multnomah St, Portland, OR 97232","""97232""",55155,77891,10676
+Fred Meyer,2,"6850 N Lombard St, Portland, OR 97203","""97203""",43918,53190,27612
+Fred Meyer,2,"7404 N Interstate Ave, Portland, OR 97217","""97217""",48622,59065,30072
+Fred Meyer,2,"100 NW 20th Pl, Portland, OR 97209","""97209""",34518,61098,8395
+Fred Meyer,2,"3030 NE Weidler St, Portland, OR 97232","""97232""",55155,77891,10676
+Fred Meyer,2,"7555 SW Barbur Blvd, Portland, OR 97219","""97219""",78979,105280,37062
+Fred Meyer,2,"3805 SE Hawthorne Blvd, Portland, OR 97214","""97214""",48004,62390,22668
+Fred Meyer,2,"6615 NE Glisan St, Portland, OR 97213","""97213""",59038,70226,29007
+Fred Meyer,2,"1111 NE 102nd Ave, Portland, OR 97220","""97220""",43212,53688,27422
+Fred Meyer,2,"14700 SE Division St, Portland, OR 97236","""97236""",47870,55407,27705
+Fred Meyer,2,"22855 NE Park Ln, Wood Village, OR 97060","""97060""",60353,69529,17978
+Safeway,2,"8330 N Ivanhoe St, Portland, OR 97203","""97203""",43918,53190,27612
+Safeway,2,"5920 NE Martin Luther King Jr Blvd, Portland, OR 97211","""97211""",55037,66701,30688
+Safeway,2,"6901 NE Sandy Blvd, Portland, OR 97213","""97213""",59038,70226,29007
+Safeway,2,"1100 NE Broadway St, Portland, OR 97232","""97232""",55155,77891,10676
+Safeway,2,"1303 NW Lovejoy St, Portland, OR 97209","""97209""",34518,61098,8395
+Safeway,2,"1010 SW Jefferson St, Portland, OR 97201","""97201""",51690,81269,12340
+Safeway,2,"2800 SE Hawthorne Blvd, Portland, OR 97214","""97214""",48004,62390,22668
+Safeway,2,"3930 SE Powell Blvd, Portland, OR 97202","""97202""",52560,66785,37097
+Safeway,2,"4515 SE Woodstock Blvd, Portland, OR 97206","""97206""",48476,55472,45454
+Safeway,2,"8145 SW Barbur Blvd, Portland, OR 97219","""97219""",78979,105280,37062
+Safeway,2,"3527 SE 122nd Ave, Portland, OR 97236","""97236""",47870,55407,27705
+Safeway,2,"1001 SW Highland Dr, Gresham, OR 97080","""97080""",62760,72111,33590
+Safeway,2,"1455 NE Division St, Gresham, OR 97030","""97030""",45355,54363,31968
+Safeway,2,"2501 SW Cherry Park Rd, Troutdale, OR 97060","""97060""",60353,69529,17978
+Target,2,"1555 N Tomahawk Island Dr, Portland, OR 97217","""97217""",48622,59065,30072
+Target,2,"939 SW Morrison St, Portland, OR 97205","""97205""",40051,58869,6682
+Target,2,"9401 NE Cascades Pkwy, Portland, OR 97220","""97220""",43212,53688,27422
+Target,2,"3031 SE Powell Blvd, Portland, OR 97202","""97202""",52560,66785,37097
+Target,2,"9800 SE Washington St, Portland, OR 97216","""97216""",43896,50449,13563
+Target,2,"21500 NE Halsey St, Fairview, OR 97024","""97024""",51056,64962,8721
+Whole Foods Market,1,"11 S State St. Lake Oswego, OR 97034 ","""97034""",98881,139662,18340
+Whole Foods Market,1,"2610 Highway 20 Bend, OR 97701-6261","""97701""",58077,73849,44673
+Whole Foods Market,1,"353 E Broadway Eugene, OR 97401","""97401""",35363,51786,37105
+Whole Foods Market,1,"17991 NE Redmond Way Redmond, WA 98052","""98052""",93173,111386,58442
+Whole Foods Market,1,"12501 120th Ave NE Kirkland, WA 98034","""98034""",78393,93427,40407
+Whole Foods Market,1,"888 116th Ave NE Bellevue, WA 98004","""98004""",99669,144248,27946
+Whole Foods Market,1,"2800 196th St. SW Lynnwood, WA 98036","""98036""",65884,74378,36000
+Whole Foods Market,1,"1026 NE 64th Street Seattle, WA 98115","""98115""",82556,106972,46206
+Whole Foods Market,1,"1001 Broadway Seattle, WA 98122","""98112""",90529,137945,21077
+Whole Foods Market,1,"2210 Westlake Ave Seattle, WA 98121","""98121""",53600,77282,12628
+Whole Foods Market,1,"2001 15th Avenue W Seattle, WA 98119","""98119""",67705,99361,21039
+Whole Foods Market,1,"3515 Bridgeport Way West University Place, WA 98466","""98466""",55556,69344,26944
+Whole Foods Market,1,"1030 Lakeway Drive Bellingham, WA 98229","""98229""",55157,68755,30321
+Whole Foods Market,1,"815 Southeast 160th Avenue Vancouver, WA 98683","""98683""",58304,70671,30832
+New Seasons,1,"951 NW Ballard Way Seattle, WA 98107","""98107""",64804,79532,21147
+New Seasons,1,"3495 Southwest Cedar Hills Boulevard Beaverton, OR 97005","""97005""",45265,56202,23741
+New Seasons,1,"2100b Southeast 164th Avenue Vancouver, WA 98683","""98683""",58304,70671,30832
+New Seasons,1,"15861 Southeast Happy Valley Town Center Drive Happy Valley, OR 97086","""97086""",76046,93289,17089
+New Seasons,1,"3 Monroe Parkway Lake Oswego, OR 97035","""97035""",71692,96371,23586
+New Seasons,1,"7703 Southwest Nyberg Street Tualatin, OR 97062 ","""97062""",70266,88765,24189
+New Seasons,1,"1453 Northeast 61st Avenue Hillsboro, OR 97124","""97124""",63323,75211,38290
+New Seasons,1,"14805 Southwest Barrows Road Beaverton, OR 97007","""97007""",71418,83552,56025
+New Seasons,1,"7300 Southwest Beaverton Hillsdale Highway Portland, OR 97225","""97225""",68803,94201,21781
+New Seasons,1,"2755 77th Avenue Southeast Mercer Island, WA 98040","""98040""",128906,187222,22699
+Grocery Outlet,3,"8620 Sw Hall Boulevard Beaverton, OR 97008","""97008""",51435,66968,27763
+Grocery Outlet,3,"3308 NE 3rd Avenue Camas, WA 98607","""98607""",78700,100868,27899
+Grocery Outlet,3,"2925 NW Division Street Gresham, OR 97030","""97030""",45355,54363,31968
+Grocery Outlet,3,"14800 Se Sunnyside Road Happy Valley, OR 97015","""97015""",56719,66456,17171
+Grocery Outlet,3,"9915 Ne Hazel Dell Avenue Vancouver, WA 98685","""98685""",74427,91237,26217
+Grocery Outlet,3,"15705 SW 116th Avenue King City, OR 97224","""97224""",64849,80241,26168
+Grocery Outlet,3,"15810 SE McLoughlin Boulevard Milwaukie, OR 97267","""97267""",54583,67918,28896
+Grocery Outlet,3,"1510 Portland Road Newberg, OR 97132","""97132""",60919,69547,24170
+Grocery Outlet,3,"878 Molalla Avenue Oregon City, OR 97045","""97045""",62817,74453,45354
+Grocery Outlet,3,"52115 Sw Chinook Way Scappoose, OR 97056","""97056""",58400,67613,9703
+Grocery Outlet,3,"1355 Nw 185th Avenue Beaverton, OR 97006","""97006""",60472,70570,50792
+Grocery Outlet,3,"5800 NE Fourth Plain Blvd Vancouver, WA 98661","""98661""",42245,57949,41740
+Grocery Outlet,3,"1325 Lewis River Rd Woodland, WA 98674","""98674""",58633,64987,11948
+Grocery Outlet,3,"13201 Aurora Avenue N Seattle, WA 98133","""98133""",57182,71395,44555
+Grocery Outlet,3,"6625 132nd Avenue NE Kirkland, WA 98033","""98033""",96609,121402,34338
+Grocery Outlet,3,"15625 Ne 8th Street Bellevue, WA 98008","""98008""",89013,109567,24411
+Grocery Outlet,3,"8700 15th Avenue Nw Seattle, WA 98117","""98117""",76908,90008,31365
+Grocery Outlet,3,"1410 E 72nd Street Tacoma, WA 98404","""98404""",43225,51611,32086
+Grocery Outlet,3,"32945 Pacific Hwy S, Po Box 3125 Federal Way, WA 98003","""98003""",52410,63083,44151
+Grocery Outlet,3,"710 Se Everett Mall Way Everett, WA 98208","""98208""","73,266","81,098","51,802"
+Grocery Outlet,3,"5209 Evergreen Way Everett, WA 98203","""98203""","60,383","69,930","34,354"
+Grocery Outlet,3,"7800 Ne Bothell Way Suite 140 Kenmore, WA 98028","""98028""","86,310","100,546","20,419"
+Grocery Outlet,3,"23910 104th Avenue Se Kent, WA 98031","""98031""","65,442","77,875","36,581"
+Grocery Outlet,3,"8221 Martin Way E Lacey, WA 98516","""98516""","72,611","84,069","20,166"
+Grocery Outlet,3,"3020 Ne 127th Street Seattle, WA 98125","""98125""","47,910","60,487","30,826"
+Grocery Outlet,3,"19800 44th Avenue W Lynnwood, WA 98036","""98036""","65,884","74,378","36,000"
+Grocery Outlet,3,"11011 Pacific Highway Sw Lakewood, WA 98499","""98499""","37,929","53,565","29,750"
+Grocery Outlet,3,"1126 Martin Luther King Jr Way Seattle, WA 98122","""98122""","57,971","77,731","31,454"
+Grocery Outlet,3,"6425 6th Avenue Tacoma, WA 98406","""98406""","58,103","69,258","21,610"
+Grocery Outlet,3,"2100 Harrison Avenue Nw Olympia, WA 98502","""98502""","58,029","75,946","30,491"
+Grocery Outlet,3,"2809 Ne Sunset Boulevard Renton, WA 98056","""98056""","64,105","76,264","32,489"
+Grocery Outlet,3,"3510 S 56th Street Tacoma, WA 98409","""98409""","43,856","48,426","22,989"
+Grocery Outlet,3,"11656 68th Avenue S Seattle, WA 98178","""98178""","55,777","65,498","24,092"
+Grocery Outlet,3,"1702 4th Avenue S Seattle, WA 98134","""98134""","54,158","74,219",644
+Grocery Outlet,3,"26104 Pacific Hwy S Kent, WA 98032","""98032""","51,834","64,255","33,853"
+Grocery Outlet,3,"123 East Burke Ave. Arlington, WA 98223","""98223""","65,194","75,132","40,815"
+Grocery Outlet,3,"102 Cross Street Se Auburn, WA 98002","""98002""","40,586","49,092","31,647"
+Trader Joe's,1,"305 SE Chkalov Dr Vancouver, WA 98683","""98683""","58,304","70,671","30,832"
+Trader Joe's,1,"4121 NE Halsey St Portland, OR 97232","""97232""","55,155","77,891","10,676"
+Trader Joe's,1,"2122 NW Glisan St Portland, OR 97210","""97210""","61,296","90,869","9,915"
+Trader Joe's,1,"4715 SE Cesar Chavez Blvd Portland, OR 97202","""97202""","52,560","66,785","37,097"
+Trader Joe's,1,"9345 SE 82nd Ave Clackamas, OR 97086","""97086""","76,046","93,289","17,089"
+Trader Joe's,1,"11753 SW Beaverton Hillsdale Hwy Beaverton, OR 97005","""97005""","45,265","56,202","23,741"
+Trader Joe's,1,"2285 NW 185th Ave Hillsboro, OR 97124","""97124""","63,323","75,211","38,290"
+Trader Joe's,1,"15391 SW Bangy Rd Lake Oswego, OR 97035","""97035""","71,692","96,371","23,586"
+Trader Joe's,1,"4450 Commercial St SE Salem, OR 97302","""97302""","50,942","63,877","36,792"
+Trader Joe's,1,"1550 NW 9th St Corvallis, OR 97330","""97330""","46,534","60,501","40,602"
+Trader Joe's,1,"1530 Black Lake Blvd SW Olympia, WA 98502","""98502""","58,029","75,946","30,491"
+Trader Joe's,1,"3800 Bridgeport Way W University Place, WA 98466","""98466""","55,556","69,344","26,944"
+Trader Joe's,1,"85 Oakway Center Eugene, OR 97401","""97401""","35,363","51,786","37,105"
+Trader Joe's,1,"1758 S 320th St Federal Way, WA 98003","""98003""","52,410","63,083","44,151"
+Trader Joe's,1,"12966 SE Kent-Kangley Rd Kent, WA 98030","""98030""","56,657","68,952","33,769"
+Trader Joe's,1,"63455 N Hwy 97 Bend, OR 97701","""97701""","58,077","73,849","44,673"
+Trader Joe's,1,"15868 1st Ave S Burien, WA 98148","""98148""","50,183","63,246","10,010"
+Trader Joe's,1,"4545 Fauntleroy Way SW Seattle, WA 98116","""98116""","75,728","101,537","22,241"
+Trader Joe's,1,"975 NW Gilman Blvd Issaquah, WA 98027","""98027""","94,297","119,651","26,141"
+Trader Joe's,1,"1700 Madison St Seattle, WA 98122","""98122""","57,971","77,731","31,454"
+Trader Joe's,1,"416 116th Ave NE Bellevue, WA 98004","""98004""","99,669","144,248","27,946"
+Trader Joe's,1,"1916 Queen Anne Ave N Seattle, WA 98109","""98109""","61,978","85,612","20,715"
+Trader Joe's,1,"490 228th Ave NE Sammamish, WA 98074","""98074""","134,159","157,543","25,748"
+Trader Joe's,1,"15563 NE 24th St Bellevue, WA 98007","""98007""","69,589","84,662","24,889"
+Trader Joe's,1,"9991 Mickelberry Rd Silverdale, WA 98383","""98383""","66,531","80,202","19,727"
+Trader Joe's,1,"4609 14th Ave NW Seattle, WA 98107","""98107""","64,804","79,532","21,147"
+Trader Joe's,1,"4555 Roosevelt Way NE Seattle, WA 98105","""98105""","52,145","79,895","43,924"
+Trader Joe's,1,"15932 Redmond Way Redmond, WA 98052","""98052""","93,173","111,386","58,442"
+Trader Joe's,1,"12520 Totem Lake Blvd NE Kirkland, WA 98034","""98034""","78,393","93,427","40,407"
+Trader Joe's,1,"1201 N 175th St Shoreline, WA 98133","""98133""","57,182","71,395","44,555"
+QFC,3,"6411 SE Milwaukie Ave Portland, OR 97202","""97202""","52,560","66,785","37,097"
+QFC,3,"5544 E Burnside St Portland, OR 97215","""97215""","56,872","70,607","16,612"
+QFC,3,"7525 SW Barnes Rd Portland, OR 97225","""97225""","68,803","94,201","21,781"
+QFC,3,"460 E North Bend Way North Bend, WA 98045","""98045""","85,740","106,389","13,888"
+QFC,3,"4570 Klahanie Dr SE Issaquah, WA 98029","""98029""","99,662","115,317","24,348"
+Fred Meyer,2,"6100 E Lake Sammamish Pkwy Se Issaquah, WA 98029","""98029""","99,662","115,317","24,348"
+QFC,3,"1540 NW Gilman Blvd Issaquah, WA 98027","""98027""","94,297","119,651","26,141"
+QFC,3,"2902 228th Ave SE Sammamish, WA 98075","""98075""","132,144","155,992","20,715"
+QFC,3,"22131 SE 237th St Maple Valley, WA 98038","""98038""","94,082","104,078","31,171"
+Fred Meyer,2,"26520 Maple Valley-Black Diamond Rd Se Maple Valley, WA 98038","""98038""","94,082","104,078","31,171"
+WinCo,3,"2101 Northeast Andresen Road Vancouver, WA, 98661","""98661""","42,245","57,949","41,740"
+WinCo,3,"7979 SE Powell Blvd Portland , OR, 97206","""97206""","48,476","55,472","45,454"
+WinCo,3,"1222 NE 102nd Ave Portland , OR, 97220","""97220""","43,212","53,688","27,422"
+WinCo,3,"3025 SW Cedar Hills Blvd Beaverton, OR, 97005","""97005""","45,265","56,202","23,741"
+WinCo,3,"7501 SW Dartmouth Street Tigard, OR, 97223","""97223""","66,010","80,265","42,891"
+WinCo,3,"11250 SE 82nd Ave Happy Valley , OR, 97086","""97086""","76,046","93,289","17,089"
+WinCo,3,"1950 NE 122nd Ave Portland , OR, 97230","""97230""","44,091","55,734","35,943"
+WinCo,3,"905 NE 136th AveVancouver, WA, 98684","""98684""","36,213","46,477",688
+WinCo,3,"7330 NE Butler St Hillsboro, OR, 97124","""97124""","63,323","75,211","38,290"
+WinCo,3,"9700 NE Hwy 99 Vancouver, WA, 98665","""98665""","52,410","66,828","24,057"
+WinCo,3,"2511 SE 1st St Gresham, OR, 97030","""97030""","45,355","54,363","31,968"
+WinCo,3,"19701 Highway 213 Oregon City, OR, 97045","""97045""","62,817","74,453","45,354"
+WinCo,3,"11310 NE 119th St Vancouver, WA, 98662","""98662""","60,185","65,988","31,644"
+WinCo,3,"1500 SW Oak St Hillsboro, OR, 97123","""97123""","58,285","67,315","36,211"
+WinCo,3,"2585 NE Hwy 99 W McMinnville, OR, 97128","""97128""","42,946","56,202","30,237"
+WinCo,3,"1240 Lancaster Dr SE Salem, OR, 97317","""97317""","58,260","80,353","1,584"
+WinCo,3,"120 Triangle Shopping Center Longview, WA, 98632","""98632""","46,267","56,576","49,168"
+WinCo,3,"4575 Commercial St. SE Salem, OR, 97302","""97302""","50,942","63,877","36,792"
+WinCo,3,"3100 Pacific Blvd SE Albany, OR, 97321","""97321""","54,087","64,068","19,504"
+WinCo,3,"1913 S 72nd St Tacoma, WA, 98408","""98408""","48,880","56,377","18,830"
+WinCo,3,"160 SW Campus Dr Federal Way, WA, 98003","""98003""","52,410","63,083","44,151"
+WinCo,3,"21100 91 Street Place South Kent, WA, 98031","""98031""","65,442","77,875","36,581"
+WinCo,3,"9900 19th Ave SE Everett, WA, 98208","""98208""","73,266","81,098","51,802"
+WinCo,3,"101 Columbia Point Drive Richland, WA, 99352","""99352""","78,225","90,314","26,975"
+WinCo,3,"21900 Highway 99 Edmonds , WA, 98026","""98026""","75,933","98,268","35,921"
+WinCo,3,"4969 Kitsap Way Bremerton, WA, 98312","""98312""","53,554","65,031","30,203"
+WinCo,3,"6621 Wahl Road East Sumner , WA, 98390","""98390""","54,886","64,734","10,461"
+WinCo,3,"3947 116th St NE Marysville , WA, 98271","""98271""","64,937","73,422","27,184"
+Target,2,"7809C NE Vancouver Plaza Dr, Vancouver, WA 98662","""98662""","60,185","65,988","31,644"
+Target,2,"8801 NE Hazel Dell Ave, Vancouver, WA 98665","""98665""","52,410","66,828","24,057"
+Target,2,"16200 SE Mill Plain Blvd, Vancouver, WA 98684","""98684""","61,316","69,900","26,968"
+Target,2,"1401 2nd Ave, Seattle, WA 98101","""98101""","37,606","78,587","10,238"
+Target,2,"2800 SW Barton St, Seattle, WA 98126","""98126""","64,247","77,711","20,698"
+Target,2,"302 NE Northgate Way, Seattle, WA 98125","""98125""","47,910","60,487","30,826"
+Target,2,"4053 Factoria Square Mall SE, Bellevue, WA 98006","""98006""","104,825","128,831","36,364"
+Target,2,"1215 N Landing Way, Renton, WA 98057","""98057""","46,919","59,524","10,613"
+Target,2,"301 Strander Blvd, Tukwila, WA 98188","""98188""","44,313","53,563","23,111"
+Target,2,"17700 NE 76th St, Redmond, WA 98052","""98052""","93,173","111,386","58,442"
+Target,2,"13950 NE 178th Pl, Woodinville, WA 98072","""98072""","98,841","122,243","22,312"
+Target,2,"755 NW Gilman Blvd, Issaquah, WA 98027","""98027""","94,297","119,651","26,141"
+Target,2,"18305 Alderwood Mall Pkwy, Lynnwood, WA 98037","""98037""","60,621","72,961","26,889"
+Target,2,"26301 104th Ave SE, Kent, WA 98030","""98030""","56,657","68,952","33,769"
+Target,2,"2201 S Commons, Federal Way, WA 98003","""98003""","52,410","63,083","44,151"
+Target,2,"3201 NW Randall Way, Silverdale, WA 98383","""98383""","66,531","80,202","19,727"
+Target,2,"3320 S 23rd St, Tacoma, WA 98405","""98405""","37,834","46,816","22,851"
+Target,2,"9400 192nd Ave E, Bonney Lake, WA 98391","""98391""","80,779","90,022","44,309"
+Target,2,"3310 S Meridian, Puyallup, WA 98373","""98373""","62,962","71,251","22,246"
+Target,2,"5618 Lakewood Town Center Blvd SW, Lakewood, WA 98499","""98499""","37,929","53,565","29,750"
+Walmart,3,"1123 Hayden Meadows Drive,  OR 97217","""97217""","48,622","59,065","30,072"
+Walmart,3,"2201 Grand Blvd,  WA 98661","""98661""","42,245","57,949","41,740"
+Walmart,3,"17275 Nw Cornell Rd,  OR 97006","""97006""","60,472","70,570","50,792"
+Walmart,3,"9000 Ne Highway 99,  WA 98665","""98665""","52,410","66,828","24,057"
+Walmart,3,"7809 Ne Vancouver Plaza Dr,  WA 98662","""98662""","60,185","65,988","31,644"
+Walmart,3,"7650 Ne Shaleen Street,  OR 97006","""97006""","60,472","70,570","50,792"
+Walmart,3,"221e Ne 104th Ave,  WA 98664","""98664""","49,362","65,421","21,771"
+Walmart,3,"9055 Sw Murray Blvd,  OR 97008","""97008""","51,435","66,968","27,763"
+Walmart,3,"7600 Sw Dartmouth St.,  OR 97223","""97223""","66,010","80,265","42,891"
+Walmart,3,"4200 Se 82nd Ave,  OR 97266","""97266""","41,274","48,310","28,254"
+Walmart,3,"14505 Ne Fourth Plain Blvd,  WA 98682","""98682""","61,316","70,244","52,893"
+Walmart,3,"430 Se 192nd Ave,  WA 98683","""98683""","58,304","70,671","30,832"
+Walmart,3,"10000 Se 82nd Ave,  OR 97086","""97086""","76,046","93,289","17,089"
+Walmart,3,"15600 Se Mcloughlin Blvd,  OR 97267","""97267""","54,583","67,918","28,896"
+Walmart,3,"1201 Sw 13th Avenue,  WA 98604","""98604""","66,855","78,812","34,232"
+Walmart,3,"19133 Willamette Dr,  OR 97068","""97068""","86,043","113,433","25,381"
+Walmart,3,"220 N Adair St,  OR 97113","""97113""","51,947","64,684","12,145"
+Walmart,3,"3900 W Powell Blvd,  OR 97030","""97030""","45,355","54,363","31,968"
+Walmart,3,"21320 Sw Langer Farms Pkwy,  OR 97140","""97140""","81,588","93,422","16,651"
+Walmart,3,"23500 Ne Sandy Blvd,  OR 97060","""97060""","60,353","69,529","17,978"
+Walmart,3,"2295 Gable Rd,  OR 97051","""97051""","52,629","58,028","12,903"
+Walmart,3,"2444 E Powell Blvd,  OR 97080","""97080""","62,760","72,111","33,590"
+Walmart,3,"1486 Dike Access Rd,  WA 98674","""98674""","58,633","64,987","11,948"
+Walmart,3,"3002 Stacey Allison Way,  OR 97071","""97071""","43,041","52,145","24,910"
+Walmart,3,"2375 Ne Highway 99w,  OR 97128","""97128""","42,946","56,202","30,237"
+Walmart,3,"540 7th Ave,  WA 98632","""98632""","46,267","56,576","49,168"
+Walmart,3,"12620 Se 41st Pl,  WA 98006","""98006""","104,825","128,831","36,364"
+Walmart,3,"15063 Main St,  WA 98007","""98007""","69,589","84,662","24,889"
+Walmart,3,"743 Rainier Avenue South,  WA 98057","""98057""","46,919","59,524","10,613"
+Walmart,3,"6797 State Highway 303 Ne,  WA 98311","""98311""","62,106","72,377","25,880"
+Walmart,3,"3497 Bethel Rd Se,  WA 98366","""98366""","54,727","64,163","34,258"
+Walmart,3,"17222 Highway 99,  WA 98037","""98037""","60,621","72,961","26,889"
+Walmart,3,"1900 S 314th St,  WA 98003","""98003""","52,410","63,083","44,151"
+Walmart,3,"1400 164th St Sw,  WA 98087","""98087""","57,839","71,350","29,976"
+Walmart,3,"34520 16th Ave S,  WA 98003","""98003""","52,410","63,083","44,151"
+Walmart,3,"762 Outlet Collection Way,  WA 98001","""98001""","73,052","82,554","31,911"
+Walmart,3,"21200 Olhava Way Nw,  WA 98370","""98370""","69,037","81,623","29,528"
+Walmart,3,"11400 Highway 99,  WA 98204","""98204""","46,667","53,052","39,380"
+Walmart,3,"1605 Se Everett Mall Way,  WA 98208","""98208""","73,266","81,098","51,802"
+Walmart,3,"19191 N Kelsey Street,  WA 98272","""98272""","72,407","79,134","27,942"
+Walmart,3,"1965 S. Union Ave,  WA 98405","""98405""","37,834","46,816","22,851"
+Walmart,3,"7001 Bridgeport Way W,  WA 98499","""98499""","37,929","53,565","29,750"
+Walmart,3,"310 31st Ave Se,  WA 98374","""98374""","73,314","82,360","37,360"
+Walmart,3,"19205 State Route 410 E,  WA 98391","""98391""","80,779","90,022","44,309"
+Walmart,3,"16502 Meridian E,  WA 98375","""98375""","73,130","80,416","26,863"
+Walmart,3,"8713 64th St Ne,  WA 98270","""98270""","68,071","73,037","45,899"
+Walmart,3,"8924 Quilceda Blvd,  WA 98271","""98271""","64,937","73,422","27,184"
+Walmart,3,"4010 172nd St Ne,  WA 98223","""98223""","65,194","75,132","40,815"
+Walmart,3,"1401 Galaxy Dr Ne,  WA 98516","""98516""","72,611","84,069","20,166"
+Walmart,3,"5110 Yelm Highway,  WA 98503","""98503""","58,777","67,148","36,611"
+Walmart,3,"100 E Wallace Kneeland Blvd,  WA 98584","""98584""","43,427","53,795","36,630"
+Fred Meyer,2,"915 Nw 45Th St Seattle, WA 98107","""98107""","64,804","79,532","21,147"
+Fred Meyer,2,"100 NW 85th St, Seattle, WA 98117","""98117""","76,908","90,008","31,365"
+Fred Meyer,2,"13000 Lake City Way NE, Seattle, WA 98125","""98125""","47,910","60,487","30,826"
+Fred Meyer,2,"365 Renton Center Way SW, Renton, WA 98057","""98057""","46,919","59,524","10,613"
+Fred Meyer,2,"17667 NE 76th St, Redmond, WA 98052","""98052""","93,173","111,386","58,442"
+Fred Meyer,2,"2041 148th Ave NE, Bellevue, WA 98007","""98007""","69,589","84,662","24,889"
+Fred Meyer,2,"12221 120th Ave NE, Kirkland, WA 98034","""98034""","78,393","93,427","40,407"
+Fred Meyer,2,"14300 1st Ave S, Burien, WA 98168","""98168""","47,612","57,411","33,734"
+Fred Meyer,2,"25250 Pacific Hwy S, Kent, WA 98032","""98032""","51,834","64,255","33,853"
+Fred Meyer,2,"33702 21st Ave SW, Federal Way, WA 98023","""98023""","66,228","74,933","47,510"
+Fred Meyer,2,"18325 Aurora Ave N, Shoreline, WA 98133","""98133""","57,182","71,395","44,555"
+Fred Meyer,2,"1100 N Meridian, Puyallup, WA 98371","""98371""","58,921","70,177","20,468"
+Fred Meyer,2,"21045 Bothell Everett Hwy, Bothell, WA 98021","""98021""","85,127","98,424","26,722"
+Fred Meyer,2,"801 Auburn Way N, Auburn, WA 98002","""98002""","40,586","49,092","31,647"
+Fred Meyer,2,"10201 SE 240th St, Kent, WA 98031","""98031""","65,442","77,875","36,581"
+Fred Meyer,2,"17801 108th Ave SE, Renton, WA 98055","""98055""","63,946","71,910","21,904"
+Fred Meyer,2,"16735 SE 272nd St, Covington, WA 98042","""98042""","82,732","94,033","43,673"
+Safeway,2,"9620 28th Ave SW, Seattle, WA 98126","""98126""","64,247","77,711","20,698"
+Safeway,2,"3900 S Othello St, Seattle, WA 98118","""98118""","51,093","67,098","42,731"
+Safeway,2,"210 Washington Ave S, Kent, WA 98032","""98032""","51,834","64,255","33,853"
+Safeway,2,"7340 35th Ave NE, Seattle, WA 98115","""98115""","82,556","106,972","46,206"
+Safeway,2,"26916 Maple Valley Hwy, Maple Valley, WA 98038","""98038""","94,082","104,078","31,171"
+Safeway,2,"9262 Rainier Ave S, Seattle, WA 98118","""98118""","51,093","67,098","42,731"
+Safeway,2,"2622 California Ave SW, Seattle, WA 98116","""98116""","75,728","101,537","22,241"
+Safeway,2,"13101 SE Kent-Kangley Rd, Kent, WA 98030","""98030""","56,657","68,952","33,769"
+Safeway,2,"17202 15th Ave NE, Shoreline, WA 98155","""98155""","71,748","86,023","32,778"
+Safeway,2,"27035 Pacific Hwy S, Des Moines, WA 98198","""98198""","59,070","69,813","34,584"
+Safeway,2,"2109 SW 336th St, Federal Way, WA 98023","""98023""","66,228","74,933","47,510"
+Safeway,2,"6911 Coal Creek Pkwy SE, Newcastle, WA 98059","""98059""","84,573","101,223","34,463"
+Safeway,2,"17023 SE 272nd St, Covington, WA 98042","""98042""","82,732","94,033","43,673"
+Safeway,2,"1645 140th Ave NE, Bellevue, WA 98005","""98005""","72,812","96,772","17,714"
+Safeway,2,"630 228th Ave NE, Sammamish, WA 98074","""98074""","134,159","157,543","25,748"
+Safeway,2,"15100 SE 38th St, Bellevue, WA 98006","""98006""","104,825","128,831","36,364"
+Safeway,2,"735 NW Gilman Blvd, Issaquah, WA 98027","""98027""","94,297","119,651","26,141"
+Safeway,2,"6850 NE Bothell Way, Kenmore, WA 98028","""98028""","86,310","100,546","20,419"
+Safeway,2,"19150 NE Woodinville Duvall Rd, Woodinville, WA 98077","""98077""","120,738","138,471","13,585"
+Safeway,2,"12519 NE 85th St, Kirkland, WA 98033","""98033""","96,609","121,402","34,338"
+Safeway,2,"17230 140th Ave SE, Renton, WA 98058","""98058""","81,492","93,003","41,938"
+Safeway,2,"200 S 3rd St, Renton, WA 98057","""98057""","46,919","59,524","10,613"
+Safeway,2,"4300 NE 4th St, Renton, WA 98059","""98059""","84,573","101,223","34,463"
+Safeway,2,"3707 N Main St, Vancouver, WA 98663","""98663""","49,287","59,857","14,115"
+Safeway,2,"6701 E Mill Plain Blvd, Vancouver, WA 98661","""98661""","42,245","57,949","41,740"
+Safeway,2,"408 NE 81st St, Vancouver, WA 98665","""98665""","52,410","66,828","24,057"
+Safeway,2,"6711 NE 63rd St, Vancouver, WA 98661","""98661""","42,245","57,949","41,740"
+Safeway,2,"6194 SW Murray Blvd, Beaverton, OR 97008","""97008""","51,435","66,968","27,763"
+Safeway,2,"2177 NW 185th Ave, Hillsboro, OR 97124","""97124""","63,323","75,211","38,290"
+Safeway,2,"2525 SE Tualatin Valley Hwy, Hillsboro, OR 97123","""97123""","58,285","67,315","36,211"
+Safeway,2,"14555 SW Teal Blvd, Beaverton, OR 97007","""97007""","71,418","83,552","56,025"
+Safeway,2,"15570 SW Pacific Hwy, Tigard, OR 97224","""97224""","64,849","80,241","26,168"
+Safeway,2,"2836 Pacific Ave, Forest Grove, OR 97116","""97116""","52,419","64,183","21,253"
+Safeway,2,"4320 SE King Rd, Milwaukie, OR 97222","""97222""","48,574","56,529","35,086"
+Safeway,2,"401 A Ave, Lake Oswego, OR 97034","""97034""","98,881","139,662","18,340"
+Safeway,2,"20685 SW Roy Rogers Rd, Sherwood, OR 97140","""97140""","81,588","93,422","16,651"
+Safeway,2,"17779 SW Ferry Rd, Lake Oswego, OR 97035","""97035""","71,692","96,371","23,586"
+Safeway,2,"95 82nd Dr, Gladstone, OR 97027","""97027""","54,776","61,904","12,165"
+Safeway,2,"13434 Colton Pl, Oregon City, OR 97045","""97045""","62,817","74,453","45,354"
+Safeway,2,"14840 SE Webster Rd, Milwaukie, OR 97267","""97267""","54,583","67,918","28,896"
+Safeway,2,"20151 SE Hwy 212, Boring, OR 97089","""97089""","82,010","94,463","10,006"
