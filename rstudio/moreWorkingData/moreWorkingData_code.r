@@ -1,14 +1,17 @@
-rstudio
 # big data bread R code
 ##### QUESTION FOR TAMMY: (Line 20) Why do we need to EXCLUDEEE zip code from tree predictor values????
 
 
 # importing workingData (grocery stores, and median income of zipcodes) into a dataframe
-groceryStores <- read.csv("workingData.csv", header=T, na.strings="?")
+groceryStores <- read.csv("moreWorkingData.csv", header=T, na.strings="?")
 fix(groceryStores)
 summary(groceryStores)
-summary(groceryStores$Zip.Code)
+summary(groceryStores$ZipCode)
 groceryStores
+
+highAndLowGroceryStores <- groceryStores[groceryStores$NumberClassification != 2, ]
+fix(highAndLowGroceryStores)
+
 
 ################################################
 # Classification Trees
@@ -19,7 +22,7 @@ install.packages("tree")
 library(tree)
 
 # classification tree for predicting CLASSIFICTION of grocery stores (high/medium/low)
-tree.classificationGroceryStores=tree(Word.Classification ~. -Grocery.Store.Name -Address -Zip.Code -Number.Classification, groceryStores)
+tree.classificationGroceryStores=tree(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, highAndLowGroceryStores)
 summary(tree.classificationGroceryStores)
 plot(tree.classificationGroceryStores)
 text(tree.classificationGroceryStores)
@@ -54,12 +57,17 @@ help(naiveBayes)
 
 # make a training set of a random sample that's half the size of the groceryStores data
 set.seed(2)
-train=sample(1:nrow(groceryStores), nrow(groceryStores)/2) #need to play around with "train" data...
+train=sample(1:nrow(highAndLowGroceryStores), 100) #need to play around with "train" data...
+groceryStores.test=highAndLowGroceryStores[-train,]
 
-bay.c <- naiveBayes(Word.Classification ~. -Grocery.Store.Name -Address -Zip.Code -Number.Classification, groceryStores, subset=train)
+# NEED TO CHECK "TRAINING" DATA
+
+bay.c <- naiveBayes(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, highAndLowGroceryStores, subset=train)
 summary(bay.c)
 bay.c
 
+results <- predict(bay.c, groceryStores.test)
+table(results,groceryStores.test$WordClassification)
 
 ################################################
 # Regression Trees (with bagging!)
@@ -67,17 +75,17 @@ bay.c
 install.packages("randomForest")
 library(randomForest)
 
+train=sample(1:nrow(highAndLowGroceryStores), 101) #need to play around with "train" data...
+
 # create a test-set
-grocery.test=groceryStores[-train,"Mean.Income.for.Zipcode"]
+grocery.test=highAndLowGroceryStores[-train,"MeanIncomeForZipcode"]
 
 # predict MEAN INCOME PER ZIPCODE with regression trees
 set.seed(1)
-bag.grocery=randomForest(Mean.Income.for.Zipcode ~. -Grocery.Store.Name -Address -Zip.Code, data=groceryStores, subset=train, mtry=3, importance=TRUE)
+bag.grocery=randomForest(MeanIncomeForZipcode ~ PopulationOfZipcode + WordClassification, data=highAndLowGroceryStores, subset=train, mtry=2, importance=TRUE)
 bag.grocery
-yhat.bag = predict(bag.grocery, newdata=groceryStores[-train,])
-
-train
-groceryStores[-train,]
+yhat.bag = predict(bag.grocery, newdata=highAndLowGroceryStores[-train,])
+#yhat.bag = head(yhat.bag, -1)
 
 plot(yhat.bag, grocery.test)
 abline(0, 1)
@@ -105,22 +113,30 @@ varImpPlot(bag.grocery)
 
 ################################################
 # Regression lines (with multiple regression!!!!!)
+# NOT USING THIS --- because not relevant to groceryStores really... and it's not making robust models...
 ################################################
 
-lm.fit=lm(Mean.Income.for.Zipcode ~ . -Address -Grocery.Store.Name -Zip.Code -Number.Classification, data=groceryStores)
+lm.fit=lm(MeanIncomeForZipcode ~ PopulationOfZipcode, data=groceryStores)
 lm.fit
 summary(lm.fit)
 
 par(mfrow=c(2,2))
 plot(lm.fit)
 
+par(mfrow=c(1,1))
+plot(MeanIncomeForZipcode ~ PopulationOfZipcode, groceryStores)
+abline(lm.fit)
+coef(lm.fit)
+confint(lm.fit)
+
+summary(lm.fit)
 
 ################################################
 # Let'z K-meanz cluster dis
 #
 ################################################
 set.seed(2)
-x <- groceryStores[,c(2, 6, 7, 8)]
+x <- groceryStores[,c(1, 3, 6, 7, 8)]
 
 km.out=kmeans(x, 3, nstart=20)
 km.out$cluster
@@ -139,16 +155,21 @@ km.out$iter
 ################################################
 # Hierarchical clusteringggg
 # .... what does this meann!!!!????? it kind of worked
+#
+# ... not clean (especially with cutting)
 ################################################
-hc.complete=hclust(dist(groceryStores), method="complete")
-hc.average=hclust(dist(groceryStores), method="average")
-hc.single=hclust(dist(groceryStores), method="single")
+hc.complete=hclust(dist(highAndLowGroceryStores), method="complete")
+hc.average=hclust(dist(highAndLowGroceryStores), method="average")
+hc.single=hclust(dist(highAndLowGroceryStores), method="single")
 
 par(mfrow=c(1,3))
 plot(hc.complete,main="Complete Linkage", xlab="", sub="", cex=.9)
 plot(hc.average,main="Average Linkage", xlab="", sub="", cex=.9)
 plot(hc.single,main="Single Linkage", xlab="", sub="", cex=.9)
 
+cutree(hc.complete, 3)
+cutree(hc.average, 3)
+cutree(hc.single, 3)
 
 ################################################
 # Principal components --- reduces the dimensionality of our dataset
@@ -168,4 +189,23 @@ pr.out$scale
 pr.out$rotation
 pr.out$x
 
-biplot(pr.out, scale=0)
+biplot(pr.out, scale=1)
+
+pr.out$rotation=-pr.out$rotation
+pr.out$x=-pr.out$x
+biplot(pr.out, scale=1)
+
+pr.out$sdev
+pr.var=pr.out$sdev^2
+pr.var
+pve=pr.var/sum(pr.var)
+pve
+
+# plot the (regular) proportion of variance (per Principal Component)
+plot(pve, xlab="Principal Component", ylab="Proportion of Variance Explained", ylim=c(0,1), type='b')
+
+# plot the cumulative proportion of variance
+plot(cumsum(pve), xlab="Principle Component", ylab="Cumulative Proportion of Variance Explained", ylim=c(0,1),type='b')
+
+
+
