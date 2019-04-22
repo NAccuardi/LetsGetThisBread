@@ -30,6 +30,7 @@ ui <- fluidPage(
          
          conditionalPanel(
            condition = "input.graph == '1'",
+           
            sidebarPanel(
              selectInput('xcol', 'X Variable', names(iris)),
              selectInput('ycol', 'Y Variable', names(iris),
@@ -60,18 +61,20 @@ ui <- fluidPage(
       
       # Show a plot of the generated distribution
       mainPanel(
-         plotOutput("output$selected_graph")
+        conditionalPanel(
+          condition = "input.graph == '1'",
+         plotOutput("plot1")
+         )
       )
    )
 )
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
-
   
-  plot1 <- reactive({
-    # kmeans
-    
+#kmeans
+  
+    # Combine the selected variables into a new data frame
     selectedData <- reactive({
       iris[, c(input$xcol, input$ycol)]
     })
@@ -90,41 +93,12 @@ server <- function(input, output) {
            pch = 20, cex = 3)
       points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
     })
-    
-    })
+      }
   
-  plot2 <- reactive({
-    # classification tree
-  })
   
-  plot3 <- reactive({
-    # regression tree
-  })
-  
-  plot4 <- reactive({
-    # hierarchical clustering
-  })
-  
-  plot5 <- reactive({
-    # random forest
-  })
-  
-  # Return the requested graph
-  graphInput <- reactive({
-    switch(input$graph,
-           "plot1" = plot1(),
-           "plot2" = plot2(),
-           "plot3" = plot3(),
-           "plot4" = plot4(),
-           "plot5" = plot5()
-    )
-  })
-  
-  output$selected_graph <- renderPlot({ 
-    graphInput()
-  })
 
-}
+
+
 
 # Run the application 
 shinyApp(ui = ui, server = server)
