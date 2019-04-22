@@ -11,89 +11,59 @@ library(shiny)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-   
-   # Application title
-   titlePanel("Lets get this bread!"),
-   
-   # Sidebar with a slider input for number of bins 
-   sidebarLayout(
-      sidebarPanel(
-         selectInput("graph", h3("Model Selection: "),
-                     c("K means" = 1,
-                       "classification tree" = 2,
-                       "regression tree" = 3,
-                       "hierarchical clustering" = 4,
-                       "random forest" =5),
-                       selected = 1),
-         
-         
-         
-         conditionalPanel(
-           condition = "input.graph == '1'",
-           
-           sidebarPanel(
-             selectInput('xcol', 'X Variable', names(iris)),
-             selectInput('ycol', 'Y Variable', names(iris),
-                         selected=names(iris)[[2]]),
-             numericInput('clusters', 'Cluster count', 3,
-                          min = 1, max = 9)
-           )
-         ),
-         
-         conditionalPanel(
-           condition = "input.graph == '2'",
-           sliderInput("breakCount", "graph 2", min=1, max=1000, value=20)
-         ),
-         
-         conditionalPanel(
-           condition = "input.graph == '3'",
-           sliderInput("breakCount", "graph 3", min=1, max=1000, value=40)
-         ),
-         
-         conditionalPanel(
-           condition = "input.graph == '4'",
-           sliderInput("breakCount", "graph 4", min=1, max=1000, value=80)
-         )
-     ),   #end of sidebar
-      
-      
-
-      
-      # Show a plot of the generated distribution
-      mainPanel(
-        conditionalPanel(
-          condition = "input.graph == '1'",
-         plotOutput("plot1")
-         )
-      )
+  headerPanel('K means'),
+  sidebarPanel(
+    selectInput('xcol', 'X Variable', names(workingData[,c(6,7)])),
+    selectInput('ycol', 'Y Variable', names(workingData[,c(8)]),
+                selected=names(workingData)[[2]]),
+    sliderInput("clusters",
+                "Number of clusters:",
+                min = 1,
+                max = 10,
+                value = 5)
+  ),
+  mainPanel(
+    plotOutput('plot1')
+  )
    )
-)
+
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   
 #kmeans
   
-    # Combine the selected variables into a new data frame
-    selectedData <- reactive({
-      iris[, c(input$xcol, input$ycol)]
-    })
+
+  
+  selectedData <- reactive({
+    workingData[, c(input$xcol, input$ycol)]
+  })
+  
+  clusters <- reactive({
+    kmeans(selectedData(), input$clusters)
+  })
+  
+  output$plot1 <- renderPlot({
+    palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
+              "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
     
-    clusters <- reactive({
-      kmeans(selectedData(), input$clusters)
-    })
+    par(mar = c(5.1, 4.1, 0, 1))
+    plot(selectedData(),
+         col = clusters()$cluster,
+         #xlab = "",
+         #ylab = "",
+         pch = 20, cex = 3
+    )
+    points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
     
-    output$plot1 <- renderPlot({
-      palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
-                "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
-      
-      par(mar = c(5.1, 4.1, 0, 1))
-      plot(selectedData(),
-           col = clusters()$cluster,
-           pch = 20, cex = 3)
-      points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
-    })
-      }
+  })
+
+    
+  
+  
+    
+    
+}#end of server function
   
   
 
