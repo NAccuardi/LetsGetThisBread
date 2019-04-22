@@ -41,7 +41,7 @@ text(tree.meanIncomePerZipcode)
 yikes <- deviance(tree.meanIncomePerZipcode)
 
 # attempt to predict zipcode ... doesn't work well
-tree.zipcode=tree(Zip.Code ~. -Grocery.Store.Name -Address -Number.Classification, groceryStores)
+tree.zipcode=tree(ZipCode ~ WordClassification + MeanIncomeForZipcode + PopulationOfZipcode, highAndLowGroceryStores)
 summary(tree.zipcode)
 plot(tree.zipcode)
 text(tree.zipcode)
