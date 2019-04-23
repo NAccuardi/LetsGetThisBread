@@ -65,11 +65,20 @@ ui <- fluidPage(
         verbatimTextOutput(outputId = "confusionTable")
         #tableOutput("confusionTable")
       )
-                  
+    ),
+    
+    # Principal component stuff  ~~~~~~~~~~~~~~~
+    column(10,
+       sidebarPanel(
+         selectInput("hehehe", "I love principal components!: ", list(1, 2, 3))
+       ),
+       
+       mainPanel(
+         fluidRow(
+           splitLayout(cellWidths = c("50%", "50%"), plotOutput('pcaPlot1'), plotOutput('pcaPlot2'))
+         )
+       )
     )
-    
-    
-    
   )
 )
 
@@ -139,6 +148,47 @@ server <- function(input, output) {
   output$confusionTable <- renderPrint(
     table(results,groceryStores.test$WordClassification)
   )
+  
+  
+  
+  # Principal component stuff  ~~~~~~~~~~~~~~~
+  
+  groceryStoreIncomeAndPop <- groceryStores[,c(6, 7, 8)]
+  
+  summary(groceryStoreIncomeAndPop)
+  
+  apply(groceryStoreIncomeAndPop, 2, mean)
+  apply(groceryStoreIncomeAndPop, 2, var)
+  
+  pr.out=prcomp(groceryStoreIncomeAndPop, scale=TRUE)
+  names(pr.out)
+  pr.out$center
+  pr.out$scale
+  pr.out$rotation
+  pr.out$x
+  
+  biplot(pr.out, scale=1)
+  
+  pr.out$rotation=-pr.out$rotation
+  pr.out$x=-pr.out$x
+  biplot(pr.out, scale=1)
+  
+  pr.out$sdev
+  pr.var=pr.out$sdev^2
+  pr.var
+  pve=pr.var/sum(pr.var)
+  pve
+  
+  
+  output$pcaPlot1 <- renderPlot({
+    # plot the (regular) proportion of variance (per Principal Component)
+    plot(pve, xlab="Principal Component", ylab="Proportion of Variance Explained", ylim=c(0,1), type='b')
+  })
+  
+  output$pcaPlot2 <- renderPlot({
+    # plot the cumulative proportion of variance
+    plot(cumsum(pve), xlab="Principle Component", ylab="Cumulative Proportion of Variance Explained", ylim=c(0,1),type='b')
+  })
   
     
     
