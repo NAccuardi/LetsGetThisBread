@@ -13,6 +13,10 @@ library(shiny)
 install.packages("tree")
 library(tree)
 
+# for bayes classfier...
+install.packages("e1071")
+library(e1071)
+help(naiveBayes)
 
 
 
@@ -49,13 +53,20 @@ ui <- fluidPage(
        mainPanel(
          plotOutput("swagPlot")
        )
-    )#,
+    ),
     
     # Bayes classifier stuff ~~~~~~~~~~~~~~~
-    #column(10,
-    #
-    #              
-    #)
+    column(10,
+      sidebarPanel(
+        selectInput("ohohoh", "Maybe put like a helperText here describing how Confusion Table describes accuracy of our dataset: ", list(1, 2, 3))
+      ),
+      
+      mainPanel(
+        verbatimTextOutput(outputId = "confusionTable")
+        #tableOutput("confusionTable")
+      )
+                  
+    )
     
     
     
@@ -108,7 +119,26 @@ server <- function(input, output) {
   })
 
     
+  # Bayes classifier stuff  ~~~~~~~~~~~~~~~
   
+  # make a training set of a random sample that's half the size of the groceryStores data
+  set.seed(2)
+  train=sample(1:nrow(highAndLowGroceryStores), 100) #need to play around with "train" data...
+  groceryStores.test=highAndLowGroceryStores[-train,]
+  
+  # NEED TO CHECK "TRAINING" DATA
+  
+  bay.c <- naiveBayes(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, highAndLowGroceryStores, subset=train)
+  summary(bay.c)
+  bay.c
+  
+  results <- predict(bay.c, groceryStores.test)
+  #bayesConfusionTable <- table(results,groceryStores.test$WordClassification)
+  #table(results,groceryStores.test$WordClassification)
+  
+  output$confusionTable <- renderPrint(
+    table(results,groceryStores.test$WordClassification)
+  )
   
     
     

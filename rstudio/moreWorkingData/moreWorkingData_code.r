@@ -57,12 +57,17 @@ help(naiveBayes)
 
 # make a training set of a random sample that's half the size of the groceryStores data
 set.seed(2)
-train=sample(1:nrow(highAndLowGroceryStores), 100) #need to play around with "train" data...
-groceryStores.test=highAndLowGroceryStores[-train,]
+
+#train=sample(1:nrow(highAndLowGroceryStores), 100) #need to play around with "train" data...
+#groceryStores.test=highAndLowGroceryStores[-train,]
+train=sample(1:nrow(groceryStores), 100)
+groceryStores.test=groceryStores[-train,]
+
 
 # NEED TO CHECK "TRAINING" DATA
 
-bay.c <- naiveBayes(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, highAndLowGroceryStores, subset=train)
+#bay.c <- naiveBayes(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, highAndLowGroceryStores, subset=train)
+bay.c <- naiveBayes(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, groceryStores, subset=train)
 summary(bay.c)
 bay.c
 
