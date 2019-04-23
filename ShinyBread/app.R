@@ -9,38 +9,74 @@
 
 library(shiny)
 
+# for classification trees...
+install.packages("tree")
+library(tree)
+
+
+
+
+
 # Define UI for application that draws a histogram
 ui <- fluidPage(
+  
   headerPanel('K means'),
-  sidebarPanel(
-    selectInput('xcol', 'X Variable', names(workingData[,c(6,7)])),
-    selectInput('ycol', 'Y Variable', names(workingData[,c(8)]),
-                selected=names(workingData)[[2]]),
-    sliderInput("clusters",
-                "Number of clusters:",
-                min = 1,
-                max = 10,
-                value = 5)
-  ),
-  mainPanel(
-    plotOutput('plot1')
+  fluidRow(
+    # Kmeans stuff ~~~~~~~~~~~~~~~
+    column(10, 
+      sidebarPanel(
+        selectInput('xcol', 'X Variable', names(workingData[,c(7)])),
+        selectInput('ycol', 'Y Variable', names(workingData[,c(8)]),
+                   selected=names(workingData)[[2]]),
+        sliderInput("clusters",
+                   "Number of clusters:",
+                   min = 1,
+                   max = 10,
+                   value = 5) 
+      ),
+      mainPanel(
+        plotOutput('plot1')
+      )
+    ),
+    
+    # Classification tree stuff  ~~~~~~~~~~~~~~~
+    column(10,
+       sidebarPanel(
+         selectInput("lalala", "Choose lalala: ", list(1, 2, 3))
+       ),
+       
+       # Show a plot of the generated distribution
+       mainPanel(
+         plotOutput("swagPlot")
+       )
+    )#,
+    
+    # Bayes classifier stuff ~~~~~~~~~~~~~~~
+    #column(10,
+    #
+    #              
+    #)
+    
+    
+    
   )
-   )
+)
 
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   
-#kmeans
-  
-
+  # Kmeans stuff ~~~~~~~~~~~~~~~
+  groceryStores <- read.csv("moreWorkingData.csv", header=T, na.strings="?")
   
   selectedData <- reactive({
-    workingData[, c(input$xcol, input$ycol)]
+    #groceryStores[, c(input$xcol, input$ycol)]
+    groceryStores[, c(7, 8)]
   })
   
   clusters <- reactive({
     kmeans(selectedData(), input$clusters)
+    # kmeans(groceryStores, input$clusters)
   })
   
   output$plot1 <- renderPlot({
@@ -55,6 +91,19 @@ server <- function(input, output) {
          pch = 20, cex = 3
     )
     points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
+    
+  })
+  
+  
+  # Classification tree stuff  ~~~~~~~~~~~~~~~
+  highAndLowGroceryStores <- workingData
+  
+  output$swagPlot <- renderPlot({
+    
+    tree.classificationGroceryStores=tree(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, groceryStores)
+    summary(tree.classificationGroceryStores)
+    plot(tree.classificationGroceryStores)
+    text(tree.classificationGroceryStores)
     
   })
 
