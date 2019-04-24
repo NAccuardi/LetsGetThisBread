@@ -28,9 +28,10 @@ ui <- fluidPage(
   
   headerPanel('~~~~~ Let\'s Get This Bread! ~~~~~'),
   titlePanel('An analysis of grocery stores, income, and population for certain zip-codes in the Portland, Vancouver, and Seattle Metro areas.'),
-  mainPanel(">>> Our research provides useful metrics for grocery store quality, location, and concentration. Some metrics that one might find interesting include how a particular zip-code area’s household incomes influence the kind of grocery stores built in that area or how the density of an area may provide more variety in the types of grocery stores present."),
-  mainPanel(">>> Below you will find various models that show our predictions of how much influence that a grocery store has in their respective zip-code areas."),
-  mainPanel(">>> [Data was obtained from United States Census Bureau (for grocery store locations) and American Community Survey (for income and population per zipcode).]"),
+  helpText("Our research provides useful metrics for grocery store quality, location, and concentration. Some metrics that one might find interesting include how a particular zip-code area’s household incomes influence the kind of grocery stores built in that area or how the density of an area may provide more variety in the types of grocery stores present."),
+  helpText("Below you will find various models that show our predictions of how much influence that a grocery store has in their respective zip-code areas."),
+  helpText("REFERENCE: Data was obtained from United States Census Bureau (for grocery store locations) and American Community Survey (for income and population per zipcode)."),
+  headerPanel('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'),
   
   fluidRow(
     
@@ -40,7 +41,7 @@ ui <- fluidPage(
            helpText("These types of decision trees are helpful with figuring out how to predict the classification of different grocery stores.",
                     "The predictions for each classification is based on the income and population for each relevant zip-code that our collection of grocery stores appear in."),
            helpText("To note, high-level grocery stores include stores like Whole Foods Market and New Seasons, medium-level grocery stores include Fred Meyer and Safeway, and low-level grocery stores include Walmart and Grocery Outlet."),
-           helpText("We included the options to choose either to look at the datasets for all classifications or for only high-and-low classifications due to the immense number of medium-level grocery stores in our overall dataset (which may cause the model to be less specific)"),
+           helpText("We included the options to choose either to look at the datasets for all classifications or for only high-and-low classifications due to the immense number of medium-level grocery stores in our overall dataset (which may cause the model to be less accurate)."),
            helpText("You also have the option to choose either mean or median incomes per zipcode as your predictor variable for the tree (along with the population per zipcode)."),
            sidebarPanel(
               selectInput("classificationTreeChoice", 
@@ -86,7 +87,13 @@ ui <- fluidPage(
     # Bayes classifier stuff ~~~~~~~~~~~~~~~
     column(10,
            titlePanel("Bayes Classifier (and Confusion Table)"),
-           helpText("Maybe put like a helperText here describing how Confusion Table describes accuracy of our dataset"),
+           helpText("We can use Bayes Theorem to create a classifier. You can calculate the probabilities of the class being assigned X based on the probabilities",
+                    "of each feature conditioned on the class being X multiplied together and finally multiplied by the probability of class being X."),
+           helpText("Essentially, this information will help us see how well mean/median income and population per zip-code will predict the classification-level of each grocery store.",
+                    "If you take a look at the \"Conditional Properties\" section, then you'll see the range of income and population values that are predicted for high, medium, and low-level grocery stores."),
+           helpText("Additionally, the confusion table (shown on the right) describes the accuracy of our Bayes classifier model."),
+           helpText("Again, you can choose to look at the dataset for all classifications or for only high-and-low classifications due to the immense number of medium-level grocery stores in our overall dataset (which may cause the model to be less accurate)."),
+           helpText("You also have the option to choose to look at mean or median incomes per zip-code (along with the population per zip-code)."),
            sidebarPanel(
              selectInput("bayesClassifierChoice",
                          "Choose dataset: ",
@@ -101,18 +108,29 @@ ui <- fluidPage(
            ),
            
            mainPanel(
-             verbatimTextOutput(outputId = "confusionTable")
+             fluidRow(
+               splitLayout(cellWidths = c("86%", "45%"), 
+                           verbatimTextOutput(outputId = "bayesClassifier"), 
+                           verbatimTextOutput(outputId = "confusionTable")
+               )
+             )
            )
     ),
     
     # Principal component stuff  ~~~~~~~~~~~~~~~
     column(10,
            titlePanel("Principal Components"),
-           helpText("Left graph describes proportion of variance (per Principal Component), and right graph describes cumulative proportion of variance."),
+           helpText("The loadings (which are the 3 blue arrows) for the first two principal components can show how different the various predictor variables are based on their principal component score on the left-most biplot.",
+                    "As we can see in the left biplot, the loadings (which are the weights of the principal components) for mean and median incomes are very similar to each other, while the loading for population is different from the income predictors."),
+           helpText("The middle plot describes the variance for each principal component, which allows us to see how much of the total variance is explained by each principal component.",
+                    "The middle graph shows how the variances are decreasing for each principal component.",
+                    "So if we were to keep the principal components that explain at least 50% of the variance in the data, we would most likely keep only the first principal component into our consideration for analyzing the data."),
+           helpText("The right-most plot describes the cumulative proportion of variance, which shows how all the principal components are explaining all the variance (since the grpah's line is increasing)."),
            
            mainPanel(
              fluidRow(
-               splitLayout(cellWidths = c("70%", "70%"), 
+               splitLayout(cellWidths = c("80%", "50%", "50%"), 
+                           plotOutput('pcaOriginalPlot'),
                            plotOutput('pcaPlot1'), 
                            plotOutput('pcaPlot2')
                )
@@ -187,12 +205,25 @@ server <- function(input, output) {
     }
   })
   
+  output$bayesClassifier <- renderPrint({
+    set.seed(2)
+    train=sample(1:nrow(bayesChosenData()), 100) #need to play around with "train" data...
+    groceryStores.test=bayesChosenData()[-train,] # NEED TO CHECK "TRAINING" DATA
+    
+    if (input$bayesIncome == "Mean income per zipcode") {
+      bay.c <- naiveBayes(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, bayesChosenData(), subset=train)
+    } else {
+      bay.c <- naiveBayes(WordClassification ~ MedianIncomeForZipcode + PopulationOfZipcode, bayesChosenData(), subset=train)
+    }
+    
+    bay.c
+  })
+  
+  
   output$confusionTable <- renderPrint({
     set.seed(2)
     train=sample(1:nrow(bayesChosenData()), 100) #need to play around with "train" data...
-    groceryStores.test=bayesChosenData()[-train,]
-    
-    # NEED TO CHECK "TRAINING" DATA
+    groceryStores.test=bayesChosenData()[-train,] # NEED TO CHECK "TRAINING" DATA
     
     if (input$bayesIncome == "Mean income per zipcode") {
       bay.c <- naiveBayes(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, bayesChosenData(), subset=train)
@@ -205,6 +236,7 @@ server <- function(input, output) {
     table(results,groceryStores.test$WordClassification)
   })
   
+
   
   
   # Principal component stuff  ~~~~~~~~~~~~~~~
@@ -213,8 +245,10 @@ server <- function(input, output) {
   
   pr.out=prcomp(groceryStoreIncomeAndPop, scale=TRUE)
   
-  pr.out$rotation=-pr.out$rotation
-  pr.out$x=-pr.out$x
+  output$pcaOriginalPlot <- renderPlot({
+    # create a biplot of the 3 principal components (mean income, median income, and population)
+    biplot(pr.out, scale=1)
+  })
   
   pr.var=pr.out$sdev^2
   pve=pr.var/sum(pr.var)
@@ -234,8 +268,6 @@ server <- function(input, output) {
 }#end of server function
   
   
-
-
 
 
 # Run the application 
