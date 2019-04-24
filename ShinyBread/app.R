@@ -18,66 +18,92 @@ install.packages("e1071")
 library(e1071)
 help(naiveBayes)
 
-
-
+groceryStores <- read.csv("moreWorkingData.csv", header=T, na.strings="?")
+highAndLowGroceryStores <- groceryStores[groceryStores$NumberClassification != 2, ]
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
   
-  headerPanel('K means'),
+  headerPanel('Let\'s Get This Bread!'),
+  mainPanel("Please take a look at some of the models that we have built!"),
   fluidRow(
-    # Kmeans stuff ~~~~~~~~~~~~~~~
-    column(10, 
-      sidebarPanel(
-        selectInput('xcol', 'X Variable', names(workingData[,c(7)])),
-        selectInput('ycol', 'Y Variable', names(workingData[,c(8)]),
-                   selected=names(workingData)[[2]]),
-        sliderInput("clusters",
-                   "Number of clusters:",
-                   min = 1,
-                   max = 10,
-                   value = 5) 
-      ),
-      mainPanel(
-        plotOutput('plot1')
-      )
-    ),
     
     # Classification tree stuff  ~~~~~~~~~~~~~~~
     column(10,
-       sidebarPanel(
-         selectInput("lalala", "Choose lalala: ", list(1, 2, 3))
-       ),
-       
-       # Show a plot of the generated distribution
-       mainPanel(
-         plotOutput("swagPlot")
-       )
+           titlePanel("Classification Tree"),
+           helpText("choose stuff"),
+           sidebarPanel(
+              selectInput("classificationTreeChoice", 
+                         "Choose dataset: ", 
+                         list("All Grocery Stores (High, Medium, and Low-level)", 
+                              "Only High and Low-level Grocery Stores")
+              ),
+              selectInput("classificationMeanOrMedianIncome",
+                          "Choose mean or median income: ",
+                          list("Mean income per zipcode",
+                               "Median income per zipcode")
+              )
+           ),
+           
+           # Show a plot of the generated distribution
+           mainPanel(
+             plotOutput("classificationTreePlot")
+           )
+    ),
+    
+    # Kmeans stuff ~~~~~~~~~~~~~~~
+    column(10, 
+           titlePanel("K-means Clustering"),
+           helpText("choose stuff for kmeans..."),
+           sidebarPanel(
+             selectInput('xcol', 'X Variable', list("MeanIncomeForZipcode", "MedianIncomeForZipcode")),
+             selectInput('ycol', 'Y Variable', list("PopulationOfZipcode")),
+             sliderInput("clusters",
+                         "Number of clusters:",
+                         min = 1,
+                         max = 10,
+                         value = 5) 
+           ),
+           mainPanel(
+             plotOutput('kmeansPlot')
+           )
     ),
     
     # Bayes classifier stuff ~~~~~~~~~~~~~~~
     column(10,
-      sidebarPanel(
-        selectInput("ohohoh", "Maybe put like a helperText here describing how Confusion Table describes accuracy of our dataset: ", list(1, 2, 3))
-      ),
-      
-      mainPanel(
-        verbatimTextOutput(outputId = "confusionTable")
-        #tableOutput("confusionTable")
-      )
+           titlePanel("Bayes Classifier (and Confusion Table)"),
+           helpText("Maybe put like a helperText here describing how Confusion Table describes accuracy of our dataset"),
+           sidebarPanel(
+             selectInput("bayesClassifierChoice",
+                         "Choose dataset: ",
+                         list("All Grocery Stores (High, Medium, and Low-level)", 
+                              "Only High and Low-level Grocery Stores")
+             ),
+             selectInput("bayesIncome",
+                         "Choose mean or median income:",
+                         list("Mean income per zipcode",
+                              "Median income per zipcode")
+             )
+           ),
+           
+           mainPanel(
+             verbatimTextOutput(outputId = "confusionTable")
+           )
     ),
     
     # Principal component stuff  ~~~~~~~~~~~~~~~
     column(10,
-       sidebarPanel(
-         selectInput("hehehe", "I love principal components!: ", list(1, 2, 3))
-       ),
-       
-       mainPanel(
-         fluidRow(
-           splitLayout(cellWidths = c("50%", "50%"), plotOutput('pcaPlot1'), plotOutput('pcaPlot2'))
-         )
-       )
+           titlePanel("Principal Components"),
+           helpText("Left graph describes proportion of variance (per Principal Component), and right graph describes cumulative proportion of variance."),
+           
+           mainPanel(
+             fluidRow(
+               splitLayout(cellWidths = c("70%", "70%"), 
+                           plotOutput('pcaPlot1'), 
+                           plotOutput('pcaPlot2')
+               )
+             )
+           )
     )
   )
 )
@@ -87,11 +113,10 @@ ui <- fluidPage(
 server <- function(input, output) {
   
   # Kmeans stuff ~~~~~~~~~~~~~~~
-  groceryStores <- read.csv("moreWorkingData.csv", header=T, na.strings="?")
   
   selectedData <- reactive({
-    #groceryStores[, c(input$xcol, input$ycol)]
-    groceryStores[, c(7, 8)]
+    groceryStores[, c(input$xcol, input$ycol)]
+    #groceryStores[, c(7, 8)]
   })
   
   clusters <- reactive({
@@ -99,7 +124,7 @@ server <- function(input, output) {
     # kmeans(groceryStores, input$clusters)
   })
   
-  output$plot1 <- renderPlot({
+  output$kmeansPlot <- renderPlot({
     palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
               "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
     
@@ -116,38 +141,55 @@ server <- function(input, output) {
   
   
   # Classification tree stuff  ~~~~~~~~~~~~~~~
-  highAndLowGroceryStores <- workingData
+  classificationChosenData <- reactive({
+    if (input$classificationTreeChoice == "All Grocery Stores (High, Medium, and Low-level)") {
+      groceryStores
+    } else {
+      highAndLowGroceryStores
+    }
+  })
   
-  output$swagPlot <- renderPlot({
+  output$classificationTreePlot <- renderPlot({
+    if (input$classificationMeanOrMedianIncome == "Mean income per zipcode") {
+      tree.classificationGroceryStores=tree(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, classificationChosenData())
+    } else {
+      tree.classificationGroceryStores=tree(WordClassification ~ MedianIncomeForZipcode + PopulationOfZipcode, classificationChosenData())
+    }
     
-    tree.classificationGroceryStores=tree(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, groceryStores)
-    summary(tree.classificationGroceryStores)
     plot(tree.classificationGroceryStores)
     text(tree.classificationGroceryStores)
-    
   })
 
     
   # Bayes classifier stuff  ~~~~~~~~~~~~~~~
   
   # make a training set of a random sample that's half the size of the groceryStores data
-  set.seed(2)
-  train=sample(1:nrow(highAndLowGroceryStores), 100) #need to play around with "train" data...
-  groceryStores.test=highAndLowGroceryStores[-train,]
   
-  # NEED TO CHECK "TRAINING" DATA
+  bayesChosenData <- reactive({
+    if (input$bayesClassifierChoice == "All Grocery Stores (High, Medium, and Low-level)") {
+      groceryStores
+    } else {
+      highAndLowGroceryStores
+    }
+  })
   
-  bay.c <- naiveBayes(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, highAndLowGroceryStores, subset=train)
-  summary(bay.c)
-  bay.c
-  
-  results <- predict(bay.c, groceryStores.test)
-  #bayesConfusionTable <- table(results,groceryStores.test$WordClassification)
-  #table(results,groceryStores.test$WordClassification)
-  
-  output$confusionTable <- renderPrint(
+  output$confusionTable <- renderPrint({
+    set.seed(2)
+    train=sample(1:nrow(bayesChosenData()), 100) #need to play around with "train" data...
+    groceryStores.test=bayesChosenData()[-train,]
+    
+    # NEED TO CHECK "TRAINING" DATA
+    
+    if (input$bayesIncome == "Mean income per zipcode") {
+      bay.c <- naiveBayes(WordClassification ~ MeanIncomeForZipcode + PopulationOfZipcode, bayesChosenData(), subset=train)
+    } else {
+      bay.c <- naiveBayes(WordClassification ~ MedianIncomeForZipcode + PopulationOfZipcode, bayesChosenData(), subset=train)
+    }
+    
+    results <- predict(bay.c, groceryStores.test)
+    
     table(results,groceryStores.test$WordClassification)
-  )
+  })
   
   
   
