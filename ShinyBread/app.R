@@ -21,17 +21,27 @@ help(naiveBayes)
 groceryStores <- read.csv("moreWorkingData.csv", header=T, na.strings="?")
 highAndLowGroceryStores <- groceryStores[groceryStores$NumberClassification != 2, ]
 
-# Define UI for application that draws a histogram
+
+
+# Define UI for application that displays various models of the data
 ui <- fluidPage(
   
-  headerPanel('Let\'s Get This Bread!'),
-  mainPanel("Please take a look at some of the models that we have built!"),
+  headerPanel('~~~~~ Let\'s Get This Bread! ~~~~~'),
+  titlePanel('An analysis of grocery stores, income, and population for certain zip-codes in the Portland, Vancouver, and Seattle Metro areas.'),
+  mainPanel(">>> Our research provides useful metrics for grocery store quality, location, and concentration. Some metrics that one might find interesting include how a particular zip-code area’s household incomes influence the kind of grocery stores built in that area or how the density of an area may provide more variety in the types of grocery stores present."),
+  mainPanel(">>> Below you will find various models that show our predictions of how much influence that a grocery store has in their respective zip-code areas."),
+  mainPanel(">>> [Data was obtained from United States Census Bureau (for grocery store locations) and American Community Survey (for income and population per zipcode).]"),
+  
   fluidRow(
     
     # Classification tree stuff  ~~~~~~~~~~~~~~~
     column(10,
            titlePanel("Classification Tree"),
-           helpText("choose stuff"),
+           helpText("These types of decision trees are helpful with figuring out how to predict the classification of different grocery stores.",
+                    "The predictions for each classification is based on the income and population for each relevant zip-code that our collection of grocery stores appear in."),
+           helpText("To note, high-level grocery stores include stores like Whole Foods Market and New Seasons, medium-level grocery stores include Fred Meyer and Safeway, and low-level grocery stores include Walmart and Grocery Outlet."),
+           helpText("We included the options to choose either to look at the datasets for all classifications or for only high-and-low classifications due to the immense number of medium-level grocery stores in our overall dataset (which may cause the model to be less specific)"),
+           helpText("You also have the option to choose either mean or median incomes per zipcode as your predictor variable for the tree (along with the population per zipcode)."),
            sidebarPanel(
               selectInput("classificationTreeChoice", 
                          "Choose dataset: ", 
@@ -54,10 +64,14 @@ ui <- fluidPage(
     # Kmeans stuff ~~~~~~~~~~~~~~~
     column(10, 
            titlePanel("K-means Clustering"),
-           helpText("choose stuff for kmeans..."),
+           helpText("K-means is a greedy clustering algorithm that, given a dataset of features, will produce K sets of observations.",
+                    "In our case, we are able to observe the similarities between different grocery stores based on the incomes and populations per zipcode."),
+           helpText("Furthermore, we can see the wide range of populations and incomes per zip-code for each of the grocery stores that are in our dataset."),
+           helpText("You have the option to choose to analyze the data with either mean or median income per zip-code (along with the population per zip-code).",
+                    "Additionally, you can choose the number of clusters that you would like to use for analyzing the data."),
            sidebarPanel(
-             selectInput('xcol', 'X Variable', list("MeanIncomeForZipcode", "MedianIncomeForZipcode")),
-             selectInput('ycol', 'Y Variable', list("PopulationOfZipcode")),
+             selectInput('xcol', 'Choose X Variable:', list("MeanIncomeForZipcode", "MedianIncomeForZipcode")),
+             selectInput('ycol', 'Choose Y Variable:', list("PopulationOfZipcode")),
              sliderInput("clusters",
                          "Number of clusters:",
                          min = 1,
@@ -197,30 +211,13 @@ server <- function(input, output) {
   
   groceryStoreIncomeAndPop <- groceryStores[,c(6, 7, 8)]
   
-  summary(groceryStoreIncomeAndPop)
-  
-  apply(groceryStoreIncomeAndPop, 2, mean)
-  apply(groceryStoreIncomeAndPop, 2, var)
-  
   pr.out=prcomp(groceryStoreIncomeAndPop, scale=TRUE)
-  names(pr.out)
-  pr.out$center
-  pr.out$scale
-  pr.out$rotation
-  pr.out$x
-  
-  biplot(pr.out, scale=1)
   
   pr.out$rotation=-pr.out$rotation
   pr.out$x=-pr.out$x
-  biplot(pr.out, scale=1)
   
-  pr.out$sdev
   pr.var=pr.out$sdev^2
-  pr.var
   pve=pr.var/sum(pr.var)
-  pve
-  
   
   output$pcaPlot1 <- renderPlot({
     # plot the (regular) proportion of variance (per Principal Component)
